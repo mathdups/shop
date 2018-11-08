@@ -14,13 +14,13 @@ body {
 .shopping-cart {
   width: 75%;
   height: auto;
-  margin: 80px auto;
+  margin: 40px auto;
   background: #FFFFFF;
-  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
- 
   display: flex;
   flex-direction: column;
+  padding: 25px 60px 25px 25px;
 }
 
 .title {
