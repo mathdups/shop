@@ -1,79 +1,77 @@
-<h2>Current Cart</h2>
 
-<table>
-  <thead>
-    <tr>
-      <td>Product</td>
-      <td>Price</td>
-      <td>Quantity</td>
-      <td></td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= link_to item.product.title, product_cart_path(item.id, item.product_id) %></td>
-        <td><%= number_to_currency item.price %></td>
-        <td><%= item.quantity %></td>
-        <td>
-          <%= form_for item, method: :delete do |f| %>
-            <%= f.submit "Remove" %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="4" align="right">
-        <%= number_to_currency current_cart.sub_total %>
-      </td>
-    </tr>
-  </tfoot>
-</table>
-<%= link_to 'Checkout', checkout_path %>
+<!DOCTYPE html>
+<html>
 
 
-<div class="shopping-cart">
-  <div class="title">
-      Mon panier
-  </div>
- 
-  <%= @items.each do |item| %>
-    <!-- Product #1 -->
-    <div class="item">
-      <div class="buttons">
-        <span class="delete-btn"></span>
-          <i class="fas fa-minus"></i>
-        <span class="like-btn"></span>
-          <i class="fas fa-heart"></i>
+    <h1>Shopping Cart</h1>
+
+    <div class="shopping-cart">
+
+      <div class="column-labels">
+        <label class="product-image">Image</label>
+        <label class="product-details">Product</label>
+        <label class="product-price">Price</label>
+        <label class="product-quantity">Quantity</label>
+        <label class="product-removal">Remove</label>
+        <label class="product-line-price">Total</label>
       </div>
+      <%= @items.each do |item| %> 
+        <div class="product">
+          <div class="product-image">
+            <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg">
+          </div>
+          <div class="product-details">
+            <div class="product-title"><%= link_to item.product.title, product_cart_path(item.id, item.product_id) %></div>
+            <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
+          </div>
+          <div class="product-price"><%= item.product.price %></div>
+          <div class="product-quantity">
+            <input type="number" value='<%= item.quantity %>' min="1">
+          </div>
+          <div class="product-removal">      
+              <%= simple_form_for item, method: :delete do |f| %>
+                <%= f.submit "Remove" %>
+              <% end %>   
+          </div>
+          <div class="product-line-price">
+            <%= item.price * item.quantity %>
+          </div>
+        </div>
+      <% end %>
 
-      <div class="image">
-        <img src='/assets/lemonpot_edit.jpg'  />
-      </div>
+      
+      
 
-      <div class="description">
-        <%= link_to item.product.title, product_cart_path(item, item.product_id) %>
+      <div class="totals">
+        <div class="totals-item">
+          <label>Subtotal</label>
+          <div class="totals-value" id="cart-subtotal"><%= current_cart.sub_total %></div>
+        </div>
+        <div class="totals-item">
+          <label>Tax (5%)</label>
+          <div class="totals-value" id="cart-tax">3.60</div>
+        </div>
+        <div class="totals-item">
+          <label>Shipping</label>
+          <div class="totals-value" id="cart-shipping">15.00</div>
+        </div>
+        <div class="totals-item totals-item-total">
+          <label>Grand Total</label>
+          <div class="totals-value" id="cart-total">90.57</div>
+        </div>
       </div>
+          
+          <button class="checkout"><%= link_to 'Checkout', checkout_path %></button>
+          
 
-      <div class="quantity">
-        <button class="plus-btn" type="button" name="button">
-          <img src="/assets/plus.svg"  />
-        </button>
-        <input type="text" name="name" value="<%= item.quantity %>" >
-        <button class="minus-btn" type="button" name="button">
-          <img src="/assets/minus.svg"  />
-        </button>
-      </div>
-      <div class="total-price"> <%= number_to_currency item.price %> </div>
-      <%= form_for item, method: :delete do |f| %>
-            <%= f.submit "Remove" %>
-          <% end %>
     </div>
-  <% end %>
-  <div class="total-price-cart"> Total: <%= number_to_currency current_cart.sub_total %> </div>
-</div>
+  </html>
+
+
+  
+
+
+
 
 
 

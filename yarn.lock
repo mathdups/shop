@@ -2139,6 +2139,11 @@ commondir@^1.0.1:
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
   integrity sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=
 
+compass@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/compass/-/compass-0.1.1.tgz#5c56d5eb442d10c1ad5989ef5c5e925db60c60e1"
+  integrity sha1-XFbV60QtEMGtWYnvXF6SXbYMYOE=
+
 component-emitter@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.2.1.tgz#137918d6d78283f7df7a6b7c5a63e140e69425e6"
@@ -4413,6 +4418,11 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
+
+jquery-min@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/jquery-min/-/jquery-min-0.0.2.tgz#0e7aa56eeaca57d80e1a64deb7171588e8e156b3"
+  integrity sha512-rfQnLAvaJWLuFYVakXyWeSuyCpMpXAjvgUI68eDIDnwOe1atruMZkmjwbQN2K6XT/qmzV0L6g/PUaVEvVatcbw==
 
 jquery@^3.3.1:
   version "3.3.1"
@@ -7193,6 +7203,13 @@ sass-loader@^6.0.7:
     neo-async "^2.5.0"
     pify "^3.0.0"
 
+sass@^1.14.3:
+  version "1.14.3"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.14.3.tgz#b8e73fee303ab97aa4ca84b8251862257e610095"
+  integrity sha512-yMpd6lYHSXX9JQ0nZzzHNa+7OuAehP7eUMOom18Z6WaITyyE+hXyKYSzsFspFotMszbwXQxfytSSJVPjEUzglg==
+  dependencies:
+    chokidar "^2.0.0"
+
 sax@^1.2.4, sax@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
@@ -7560,6 +7577,11 @@ split-string@^3.0.1, split-string@^3.0.2:
   integrity sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw==
   dependencies:
     extend-shallow "^3.0.0"
+
+spring@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/spring/-/spring-0.0.0.tgz#27a9f571d49f3f29e90c6b9625364073a8353815"
+  integrity sha1-J6n1cdSfPynpDGuWJTZAc6g1OBU=
 
 sprintf-js@~1.0.2:
   version "1.0.3"

@@ -10,12 +10,12 @@ class OrderItemsController < ApplicationController
       quantity: params[:quantity]
     )
 
-    redirect_to cart_path
+    redirect_to order_items_path
   end
 
   def destroy
     current_cart.remove_item(id: params[:id])
-    redirect_to cart_path
+    redirect_to order_items_path
   end
 
 end
