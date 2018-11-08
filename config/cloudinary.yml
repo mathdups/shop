@@ -1,0 +1,21 @@
+development:
+  cloud_name: dkprc38da
+  api_key: '726335886221882'
+  api_secret: Cv0KZw8xXcaeP5qK8cOzHHQSIoM
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dkprc38da
+  api_key: '726335886221882'
+  api_secret: Cv0KZw8xXcaeP5qK8cOzHHQSIoM
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dkprc38da
+  api_key: '726335886221882'
+  api_secret: Cv0KZw8xXcaeP5qK8cOzHHQSIoM
+  enhance_image_tag: true
+  static_image_support: false
+
+  
+
