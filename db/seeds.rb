@@ -5,13 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+PRODUCTS_COUNT = 5
 
-PRODUCTS_COUNT = 100
+MAX_CATEGORIES = 4
 
-MAX_CATEGORIES = 3
-
-MAX_VARIANTS = 4
-VARIANTS_WEIGHT = 0.53
+MAX_VARIANTS = 1
+VARIANTS_WEIGHT = 0.1
 
 CATEGORIES = Faker::Base.fetch_all('commerce.department').map do |title|
   Category.find_or_create_by!(title: title)

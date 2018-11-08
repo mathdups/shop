@@ -12,7 +12,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.product.title %></td>
+        <td><%= link_to item.product.title, product_cart_path(item.id, item.product_id) %></td>
         <td><%= number_to_currency item.price %></td>
         <td><%= item.quantity %></td>
         <td>
@@ -23,4 +23,59 @@
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4" align="right">
+        <%= number_to_currency current_cart.sub_total %>
+      </td>
+    </tr>
+  </tfoot>
 </table>
+<%= link_to 'Checkout', checkout_path %>
+
+
+<div class="shopping-cart">
+  <div class="title">
+      Mon panier
+  </div>
+ 
+  <%= @items.each do |item| %>
+    <!-- Product #1 -->
+    <div class="item">
+      <div class="buttons">
+        <span class="delete-btn"></span>
+          <i class="fas fa-minus"></i>
+        <span class="like-btn"></span>
+          <i class="fas fa-heart"></i>
+      </div>
+
+      <div class="image">
+        <img src='/assets/lemonpot_edit.jpg'  />
+      </div>
+
+      <div class="description">
+        <%= link_to item.product.title, product_cart_path(item, item.product_id) %>
+      </div>
+
+      <div class="quantity">
+        <button class="plus-btn" type="button" name="button">
+          <img src="/assets/plus.svg"  />
+        </button>
+        <input type="text" name="name" value="<%= item.quantity %>" >
+        <button class="minus-btn" type="button" name="button">
+          <img src="/assets/minus.svg"  />
+        </button>
+      </div>
+      <div class="total-price"> <%= number_to_currency item.price %> </div>
+      <%= form_for item, method: :delete do |f| %>
+            <%= f.submit "Remove" %>
+          <% end %>
+    </div>
+  <% end %>
+  <div> TOTAL = <%= number_to_currency current_cart.sub_total %> </div>
+</div>
+
+
+
+
+

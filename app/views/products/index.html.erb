@@ -14,12 +14,15 @@
         <%= number_field_tag :quantity, 1 %>
         <%= submit_tag "Add to Cart" %>
       <% end %>
-
+<%
+=begin %>
       <ul>
         <% product.variants.each do |variant| %>
           <li><%= variant.title %> (<%= number_to_currency variant.price %>)</li>
         <% end %>
-      </ul>
+      </ul> >
+      <%
+=end %>
     </li>
   <% end %>
 </ol>
