@@ -41,9 +41,11 @@ gem 'webpacker'
 gem 'autoprefixer-rails'
 gem 'pundit'
 gem 'cloudinary'
-gem 'carrierwave'
+gem 'carrierwave', '~> 0.10.0'
 gem 'stripe'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'mini_magick'
 
 
 

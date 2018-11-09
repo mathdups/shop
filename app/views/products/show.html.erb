@@ -10,7 +10,12 @@
       </div>
       <div class="product-price-btn">
         <p><span><%= @product.price %> </span>€</p>
-        <button type="button">buy now</button>
+        
+
+       <button> <%= link_to pluralize(current_cart.items_count, 'item'), cart_path, type: 'button', label: 'buy now' %> </button>
+
+      
+        
       </div>
     </div>
   </div>

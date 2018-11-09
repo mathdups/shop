@@ -1,12 +1,8 @@
-<h2>
-  <%= link_to "Categories", root_path %> /
-  <%= @category.title %> /
-  Products
-</h2>
+
 
 <ol>
   <% @products.each do |product| %>
-    <li>
+    <li> 
       <%= product.title %> (<%= number_to_currency product.price %>)
 
       <%= form_tag order_items_path do %>
