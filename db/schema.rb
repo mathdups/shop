@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.string "short_description"
     t.string "short"
     t.string "photo"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["title"], name: "index_products_on_title", unique: true
   end
 
@@ -92,4 +94,5 @@ ActiveRecord::Schema.define(version: 20191220234943) do
   add_foreign_key "product_categories", "categories", name: "fk_product_categories_to_categories"
   add_foreign_key "product_categories", "products", name: "fk_product_categories_to_products"
   add_foreign_key "product_variants", "products", name: "fk_product_variants_to_product"
+  add_foreign_key "products", "categories"
 end

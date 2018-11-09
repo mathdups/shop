@@ -1,9 +1,14 @@
 
 
 
-<%= simple_form_for :product, url: "/", method: "post" do |f| %>
-
-  <%= f.text_field :title %>
-  <%= f.text_area :description %>
+<%= simple_form_for @product, url: category_products_path, method: "post" do |f| %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :short_description %>
+  <%= f.input :price %>
+  <%= f.input :category_id, label: "Catégorie associée", collection: Category.all, include_blank: false, html: { class: 'required' } %>
   <%= f.submit "save product" %>
 <% end %>
+

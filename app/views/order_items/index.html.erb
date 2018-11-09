@@ -21,7 +21,7 @@
               <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg">
             </div>
             <div class="product-details">
-              <div class="product-title"><%= link_to item.product.title, product_cart_path(item.id, item.product_id) %></div>
+              <div class="product-title"><%= link_to item.product.title, category_product_path(item.id, item.product_id) %></div>
               <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
             </div>
             <div class="product-price"><%= item.product.price %></div>
