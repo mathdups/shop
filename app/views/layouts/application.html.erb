@@ -17,7 +17,9 @@
     <%= render 'shared/flashes' %>
     <p>
       <%= link_to "Home", root_path %> |
-      <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %>
+      <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %> |
+      <%= link_to "New category", new_category_path %> |
+      <%= link_to "Liste catégories", categories_path %>
     </p>
 
     <hr />

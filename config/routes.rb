@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
-  resources :categories, only: [:index] do
-    resources :products, only: [:index, :new, :create, :show]
+  resources :categories, only: [:index, :new, :create, :update, :edit] do
+    resources :products, only: [:index, :new, :create, :show, :edit, :update]
   end
 
   get '/cart', to: 'order_items#index'
@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   get '/cart/checkout', to: 'orders#new', as: :checkout
   post '/cart/checkout', to: 'orders#create'
+
   
 
+ 
 
 end
