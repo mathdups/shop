@@ -3,5 +3,11 @@ class ProductPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+
+    def create?
+      record.user == admin
+    end
+    
   end
 end
+

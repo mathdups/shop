@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit]
   
   def index
     # @category = Category.find(params[:category_id])
@@ -15,13 +16,15 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save
-      redirect_to category_product_path(@product, @product.id), notice: 'Le nouveau produit a bien été créé'
-    else
-      render 'new'
+    if current_user.admin?
+      @product = Product.new(product_params)
+      if @product.save
+        redirect_to category_product_path(@product, @product.id), notice: 'Le nouveau produit a bien été créé'
+      else
+        render 'new', notice: "Une erreur s'est produite, votre produit n'a pas été rajouté"
+      end
+    else redirect_to root_path, notice: "Vous ne pouvez pas rentrer ici car vous n'êtes pas administrateur."
     end
-
   end
 
 

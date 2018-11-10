@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   respond_to :html
 
   before_action :current_cart
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   include Pundit
 
   # Pundit: white-list approach.
