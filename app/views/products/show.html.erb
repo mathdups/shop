@@ -9,28 +9,15 @@
         <p><%=@product.description%></p>
       </div>
       <div class="product-price-btn">
-        <p><span><%= @product.price %> </span>€</p>
+        <p><span><%= @product.price %> </span>€</p> <br>
         
 
-       <button> <%= link_to cart_path, type: 'button', label: 'buy now', method: 'post' %> </button>
 
-      
-        
-      </div>
-    </div>
-  </div>
-
-
-  <ol>
-  
-    <li> 
-      <%= @product.title %> (<%= number_to_currency @product.price %>)
-
-      <%= form_tag order_items_path do %>
-        <%= hidden_field_tag :product_id, @product.id %>
-        <%= number_field_tag :quantity, 1 %>
-        <%= submit_tag "Add to Cart" %>  
-<%
+            <%= form_tag order_items_path do %>
+            <%= hidden_field_tag :product_id, @product.id %>
+            <%= number_field_tag :quantity, 1 %>
+            <%= submit_tag "Add to Cart" %>  
+            <%
 =begin %>
       <ul>
         <% product.variants.each do |variant| %>
@@ -39,7 +26,11 @@
       </ul> >
       <%
 =end %>
-    </li>
-  <% end %>
-</ol>
+          <% end %>
+   
+      </div>
+    </div>
+  </div>
 
+
+ 
