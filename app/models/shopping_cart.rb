@@ -1,6 +1,5 @@
 class ShoppingCart
   delegate :sub_total, to: :order
-  
 
   def initialize(token:)
     @token = token
@@ -16,14 +15,12 @@ class ShoppingCart
     order.items.sum(:quantity)
   end
 
-  def add_item(product_id:, quantity:)
-  
+  def add_item(product_id:, quantity: 1)
     product = Product.find(product_id)
 
     order_item = order.items.find_or_initialize_by(
       product_id: product_id
     )
-    
 
     order_item.price = product.price
     order_item.quantity = quantity

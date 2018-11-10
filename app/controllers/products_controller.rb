@@ -1,9 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit]
   
-
-
-  
   def index
     # @category = Category.find(params[:category_id])
     # @products = @category.products.includes(:variants).order(:title)
