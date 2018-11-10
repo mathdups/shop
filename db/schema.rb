@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.string "title", limit: 100, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_categories_on_product_id"
     t.index ["title"], name: "index_categories_on_title", unique: true
   end
 
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.datetime "updated_at", null: false
     t.string "token"
     t.string "status", default: "cart"
+    t.integer "quantity"
   end
 
   create_table "product_categories", force: :cascade do |t|
@@ -72,6 +75,7 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.string "short"
     t.string "photo"
     t.bigint "category_id"
+    t.integer "quantity"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["title"], name: "index_products_on_title", unique: true
   end
@@ -89,8 +93,9 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "products"
   add_foreign_key "order_items", "orders", name: "fk_order_items_to_order"
-  add_foreign_key "order_items", "products", name: "fk_order_items_to_product"
+  add_foreign_key "order_items", "products", name: "fk_order_items_to_product", on_delete: :cascade
   add_foreign_key "product_categories", "categories", name: "fk_product_categories_to_categories"
   add_foreign_key "product_categories", "products", name: "fk_product_categories_to_products"
   add_foreign_key "product_variants", "products", name: "fk_product_variants_to_product"

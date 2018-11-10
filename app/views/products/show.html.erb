@@ -12,11 +12,34 @@
         <p><span><%= @product.price %> </span>€</p>
         
 
-       <button> <%= link_to pluralize(current_cart.items_count, 'item'), cart_path, type: 'button', label: 'buy now' %> </button>
+       <button> <%= link_to cart_path, type: 'button', label: 'buy now', method: 'post' %> </button>
 
       
         
       </div>
     </div>
   </div>
+
+
+  <ol>
+  
+    <li> 
+      <%= @product.title %> (<%= number_to_currency @product.price %>)
+
+      <%= form_tag order_items_path do %>
+        <%= hidden_field_tag :product_id, @product.id %>
+        <%= number_field_tag :quantity, 1 %>
+        <%= submit_tag "Add to Cart" %>  
+<%
+=begin %>
+      <ul>
+        <% product.variants.each do |variant| %>
+          <li><%= variant.title %> (<%= number_to_currency variant.price %>)</li>
+        <% end %>
+      </ul> >
+      <%
+=end %>
+    </li>
+  <% end %>
+</ol>
 

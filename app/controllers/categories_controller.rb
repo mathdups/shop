@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
     if current_user.admin?
       @category = Category.new(category_params)
       if @category.save
-        redirect_to new_category_product_path(@category, @category.id), notice: 'Le nouveau produit a bien été créé'
+        redirect_to new_category_product_path(@category), notice: 'La nouvelle catégorie a bien été créée'
       else
           redirect_to root_path, notice: "Une erreur s'est produite, votre catégorie n'a pas été rajouté"
       end
@@ -35,9 +35,9 @@ class CategoriesController < ApplicationController
   end
 
   def delete
-    Category.find(params[:id]).destroy
+    @category = Category.find(params[:id]).destroy
     flash[:success] = "User deleted"
-    redirect_to users_url
+    redirect_to root_path
   end
 
   private

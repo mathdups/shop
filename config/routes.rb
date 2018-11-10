@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
-  resources :categories, only: [:index, :new, :create, :update, :edit] do
-    resources :products, only: [:index, :new, :create, :show, :edit, :update]
+  resources :categories, only: [:index, :new, :create, :update, :edit, :destroy] do
+    resources :products, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
 
   get '/cart', to: 'order_items#index'
