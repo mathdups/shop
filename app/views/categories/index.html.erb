@@ -9,5 +9,9 @@
         (<%= category.products.count %> products)
       <% end %>
     </li>
+    <%= link_to "Delete", category_path(category),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+    </li>
   <% end %>
 </ol>

@@ -9,6 +9,9 @@
         <%= hidden_field_tag :product_id, product.id %>
         <%= number_field_tag :quantity, 1 %>
         <%= submit_tag "Add to Cart" %>
+        <%= link_to "Delete", category_product_path(product, product.id),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
       <% end %>
 
       
@@ -22,5 +25,6 @@
       <%
 =end %>
     </li>
+    
   <% end %>
 </ol>

@@ -34,10 +34,10 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @category = Category.find(params[:id]).destroy
-    flash[:success] = "User deleted"
-    redirect_to root_path
+    flash[:success] = "Category deleted"
+    redirect_to categories_path
   end
 
   private
