@@ -8,11 +8,24 @@ class ProductsController < ApplicationController
   end
 
   def show 
-    @product = Product.find(params[:category_id])
+    @product = Product.find(params[:id])
   end
 
   def new
     @product = Product.new 
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+  
+  def update
+    @product = Product.find(params[:id])
+      if @product.update_attributes(product_params)
+        redirect_to category_product_path(@product, @product.id), notice: "Product updated"
+      else
+        redirect_to root_path
+      end
   end
 
   def create

@@ -9,6 +9,19 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
+  def edit 
+    @category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update_attributes(category_params)
+      redirect_to categories_path, notice: "Product updated"
+    else
+      redirect_to root_path
+    end
+  end
+
   def create
     if current_user.admin?
       @category = Category.new(category_params)
