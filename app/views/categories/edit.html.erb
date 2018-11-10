@@ -1,0 +1,7 @@
+   <%= simple_form_for @category, method: "patch" do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
