@@ -1,0 +1,19 @@
+<h2>Categories (<%= @categories.length %>)</h2>
+
+
+
+
+<ol>
+  <% @categories.each do |category| %>
+    <li>
+      <%= link_to category_products_path(category) do %>
+        <%= category.title %>
+        <%= category.products.name  %>
+      <% end %>
+    </li>
+    <%= link_to "Delete", category_path(category),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ol>

@@ -1,5 +1,14 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit]
+  after_action :update_categories, only: [:create]
+
+  def update_categories
+    @category = Category.find(params[:category_id])
+    @product = @category.products
+    @category << @product
+    save
+  end
+
   
   def index
     # @category = Category.find(params[:category_id])
