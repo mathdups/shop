@@ -22,8 +22,14 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def update_categories
+    @category = Category.find(params[:id])
+    @product = @category.products
+    @category << @product
+    save
+  end
+
   def create
-    binding.pry
     if current_user.admin?
       @category = Category.new(category_params)
       if @category.save
@@ -44,6 +50,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-   params.require(:category).permit(:id, :title, :product_id)
+   params.require(:category).permit(:id, :title)
   end
 end
