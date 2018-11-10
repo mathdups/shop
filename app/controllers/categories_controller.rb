@@ -34,6 +34,12 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def delete
+    Category.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
+  end
+
   private
 
   def category_params
