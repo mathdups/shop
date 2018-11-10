@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
       @product = Product.new(product_params)
       if @product.save
         redirect_to category_product_path(@product, @product.id), notice: 'Le nouveau produit a bien été créé'
+        @product << @category.products
       else
         render 'new', notice: "Une erreur s'est produite, votre produit n'a pas été rajouté"
       end
@@ -50,6 +51,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:id, :photo, :short_description, :description, :price, :category_id, :title)
+    params.require(:product).permit(:id, :photo, :short_description, :description, :price, :public_id, :title)
   end
 end
