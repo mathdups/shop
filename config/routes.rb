@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :models
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to: 'products#index'
+  root to: 'categories#index'
 
   resources :categories, only: [:index, :new, :create, :show, :update, :edit, :destroy] do
     resources :products, only: [:index, :new, :create, :show, :edit, :update, :destroy]

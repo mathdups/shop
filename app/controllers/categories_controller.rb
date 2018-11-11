@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit]
   
   def index
-    @categories = Category.all
+    @categories = Category.joins(:products).select('categories.*, count(products.id) as products_count').group('categories.id').order(:title)
   end
 
   def new
@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
   def create
     if current_user.admin?
       @category = Category.new(category_params)
-      if @category.save
+      if @category.save!
         redirect_to new_category_product_path(@category), notice: 'La nouvelle catégorie a bien été créée'
       else
           redirect_to root_path, notice: "Une erreur s'est produite, votre catégorie n'a pas été rajouté"

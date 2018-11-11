@@ -8,7 +8,7 @@ class ProductCategoriesController < ApplicationController
     @category = Category.find(params[:id])
     product = @category.products
     @category << product
-    save
+    @category.save
   end
 
 end

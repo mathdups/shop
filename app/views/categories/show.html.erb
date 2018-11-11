@@ -2,3 +2,6 @@
 <% Product.where(category_id: @category.id).each do |product| %>
 <li> <%= product.title %> </li>
 <% end %>
+
+<%= link_to "Add", new_category_product_path(@category) %>
+
