@@ -13,6 +13,10 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
+  def show
+    @category = Category.find(params[:id])
+  end
+
   def update
     @category = Category.find(params[:id])
     if @category.update_attributes(category_params)
@@ -20,13 +24,6 @@ class CategoriesController < ApplicationController
     else
       redirect_to root_path
     end
-  end
-
-  def update_categories
-    @category = Category.find(params[:id])
-    @product = @category.products
-    @category << @product
-    save
   end
 
   def create

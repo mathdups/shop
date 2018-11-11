@@ -1,7 +1,6 @@
 
 
-Category.delete_all
-Product.delete_all
+
 Category.create(title: "Weeds")
 Category.create(title: "Médocs")
 Product.create(

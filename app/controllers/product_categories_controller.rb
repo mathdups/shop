@@ -4,6 +4,11 @@ class ProductCategoriesController < ApplicationController
     @categories = Category.all
   end
   
-
+  def update_categories
+    @category = Category.find(params[:id])
+    product = @category.products
+    @category << product
+    save
+  end
 
 end
