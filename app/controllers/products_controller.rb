@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
     # @category = Category.find(params[:category_id])
     # @products = @category.products.includes(:variants).order(:title)
     @products = Product.all
+    @categories = Category.all
   end
 
   def show 
@@ -24,9 +25,8 @@ class ProductsController < ApplicationController
   end
   
   def update
-    @product.category_id = params[:category_id]
     @product = Product.find(params[:id])
-      if @product.update_attributes(product_params)
+      if @product.update_attributes(product_params) && @product.category_id = params[:category_id]
         @product.save
         redirect_to category_product_path(@product, @product.id), notice: "Product updated"
       else

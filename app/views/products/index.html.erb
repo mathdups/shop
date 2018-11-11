@@ -4,7 +4,10 @@
   <% @products.each do |product| %>
     <li> 
       <%= link_to Category.find(product.category_id).title, category_path(product.category_id) %></td> <br>
-      <%= product.title %> (<%= number_to_currency product.price %>)
+      <%= link_to category_product_path(product, product.id) do %>
+        <%= product.title %> (<%= number_to_currency product.price %>)
+      <% end %>
+      <%= link_to "Edit", edit_category_product_path(product, product.id) %>
 
       <%= form_tag order_items_path do %>
         <%= hidden_field_tag :product_id, product.id %>
