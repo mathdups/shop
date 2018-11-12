@@ -17,13 +17,16 @@ class ShoppingCart
   end
   
 
-  def add_item(product_id:, quantity: 1)
+  def add_item(product_id:, quantity: O)
   
       product = Product.find(product_id)
       order_item = order.items.find_or_initialize_by(product_id: product_id)
       order_item.price = product.price
-      order_item.quantity += quantity.to_i
-      order_item.save
+      if order_item.quantity.present?
+        order_item.quantity += quantity.to_i
+      else order_item.quantity = quantity
+      end
+    
       items_count
 
     
