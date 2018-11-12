@@ -12,20 +12,21 @@ class ShoppingCart
   end
 
   def items_count
-    order.items.sum(:quantity)
+    order_items = order.items.sum(:quantity)
+    
   end
+  
 
-  def add_item(product_id:, quantity: )
-    product = Product.find(product_id)
+  def add_item(product_id:, quantity: 1)
+  
+      product = Product.find(product_id)
+      order_item = order.items.find_or_initialize_by(product_id: product_id)
+      order_item.price = product.price
+      order_item.quantity += quantity.to_i
+      order_item.save
+      items_count
 
-    order_item = order.items.find_or_initialize_by(
-      product_id: product_id
-    )
-
-    order_item.price = product.price
-    order_item.quantity = quantity.to_i + 1
-
-    items_count
+    
 
     ActiveRecord::Base.transaction do
       order_item.save

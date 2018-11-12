@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
-  protect_from_forgery
   before_action :authenticate_user!, only: [:new, :create]
   
-  def def new
+  def new
     @order = current_cart.order
     if (order_params.merge(status: 'open'))
       session[cart_token] = nil
@@ -24,7 +23,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:first_name, :last_name, :quantity, :public_id)
+    params.require(:order).permit(:first_name, :last_name, :quantity, :product_id)
   end
-  
 end
