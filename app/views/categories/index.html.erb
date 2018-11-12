@@ -1,35 +1,25 @@
-<h2>Categories (<%= @categories.length %>)</h2>
-<button><%= link_to "Add Category ", new_category_path %> </button>
+<h2>Bienvenue</h2>
 <ul>
   <% @categories.each do |category| %>
     <li>
       <%= link_to category_path(category) do %>
         <h4> <%= category.title %> 
-        (<%= category.products.count %> products) </h4> 
+        (<%= category.products.count %> products!) </h4> 
       <% end %>
     </li>
       <% Product.where(category_id: category.id).each do |product| %>
-          <li><%= link_to category_product_path(category, category.id) do %> 
-              <%= product.title %>
-              <% end %> 
-              <%= link_to edit_category_product_path(category.id, product.id) do %> 
-              <button>Edit </button>
-              <% end %> 
-              <button> <%= link_to "Delete", category_product_path(category.id, product.id),
-                method: :delete,
-                data: { confirm: "Are you sure you want to delete #{product.title}?" } %>
-              </button>
-          </li>
-       <% end %>
-    <br>
-    <%= link_to new_category_product_path(category.id, category) do %> 
-          <button>Add </button>
-    <% end %> 
-    <button> <%= link_to "Delete", category_path(category),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %></button>
-    <button><%= link_to "Edit", edit_category_path(category) %> </button>
-    <br>
+          <li><%= link_to category_product_path(category.id, product.id) do %> 
+              <%= product.title %> 
+              <% end %>
+              (<%= number_to_currency product.price %>)
+              <%= form_tag order_items_path do %>
+              <%= hidden_field_tag :product_id, product.id %>
+              <%= number_field_tag :quantity, 1 %>
+              <%= submit_tag "Add to Cart" %>
+              <% end %>
+        <% end %>
     </li>
   <% end %>
 </ul>
+
+

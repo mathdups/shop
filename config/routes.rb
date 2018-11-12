@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   get '/cart/checkout', to: 'orders#new', as: :checkout
   post '/cart/checkout', to: 'orders#create'
 
-  get '/admin/', to: 'product_categories#index'
-  get  '/admin/categories/:id', to: 'product_categories#show'
+  get '/admin/', to: 'categories#admin', as: :admin
+  
 
   
   
