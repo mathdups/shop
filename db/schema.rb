@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.bigint "user_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
+    t.index ["user_id"], name: "index_order_items_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.string "token"
     t.string "status", default: "cart"
     t.integer "quantity"
+    t.integer "user_id"
   end
 
   create_table "product_categories", force: :cascade do |t|
@@ -89,6 +92,13 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin"
+    t.string "last_name"
+    t.string "first_name"
+    t.string "address"
+    t.integer "postal_code"
+    t.string "city"
+    t.string "country"
+    t.string "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -96,6 +106,7 @@ ActiveRecord::Schema.define(version: 20191220234943) do
   add_foreign_key "categories", "products"
   add_foreign_key "order_items", "orders", name: "fk_order_items_to_order"
   add_foreign_key "order_items", "products", name: "fk_order_items_to_product", on_delete: :cascade
+  add_foreign_key "order_items", "users"
   add_foreign_key "product_categories", "categories", name: "fk_product_categories_to_categories"
   add_foreign_key "product_categories", "products", name: "fk_product_categories_to_products"
   add_foreign_key "product_variants", "products", name: "fk_product_variants_to_product"

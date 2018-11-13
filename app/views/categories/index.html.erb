@@ -14,6 +14,8 @@
               (<%= number_to_currency product.price %>)
               <%= form_tag order_items_path do %>
               <%= hidden_field_tag :product_id, product.id %>
+          
+              <%= hidden_field_tag :category_id, category.id %>
               <%= number_field_tag :quantity, 1 %>
               <%= submit_tag "Add to Cart" %>
               <% end %>
