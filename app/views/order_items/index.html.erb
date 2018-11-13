@@ -67,6 +67,9 @@
           data-locale="auto"></script>
           
           <button class="checkout"><%= link_to 'Checkout', checkout_path %></button>
+          
+          
+          
           <%= form_tag charges_path do %>
           <article>
             <% if flash[:error].present? %>

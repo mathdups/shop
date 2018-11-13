@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20191220234943) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.bigint "order_id", null: false
+    t.bigint "order_id"
     t.bigint "product_id", null: false
     t.integer "quantity", null: false
     t.decimal "price", precision: 15, scale: 2, null: false
