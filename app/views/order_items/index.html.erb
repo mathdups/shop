@@ -47,19 +47,37 @@
         </div>
         <div class="totals-item">
           <label>Tax (5%)</label>
-          <div class="totals-value" id="cart-tax">3.60</div>
+          <div class="totals-value" id="cart-tax"><%= current_cart.tva  %></div>
         </div>
         <div class="totals-item">
           <label>Shipping</label>
-          <div class="totals-value" id="cart-shipping">15.00</div>
+          <div class="totals-value" id="cart-shipping">
+          <%= current_cart.shipping_cost %>
+          </div>
         </div>
         <div class="totals-item totals-item-total">
           <label>Grand Total</label>
-          <div class="totals-value" id="cart-total"> <%= current_cart.sub_total + 3.60 + 15 %> </div>
+          <div class="totals-value" id="cart-total"> <%= current_cart.price_total %> </div>
         </div>
       </div>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Checkout"
+          data-amount="<%= current_cart.price_total %>"
+          data-locale="auto"></script>
           
           <button class="checkout"><%= link_to 'Checkout', checkout_path %></button>
+          <%= form_tag charges_path do %>
+          <article>
+            <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+            <% end %>
+          </article>
+
+  
+<% end %>
           
 
     </div>

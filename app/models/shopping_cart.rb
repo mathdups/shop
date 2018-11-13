@@ -1,5 +1,6 @@
 class ShoppingCart
   delegate :sub_total, to: :order
+  
 
   def initialize(token:)
     @token = token
@@ -11,25 +12,37 @@ class ShoppingCart
     end
   end
 
+  def tva
+    tva = order.sub_total * 0.05
+  end
+
+  def shipping_cost
+    if order.sub_total == 0
+      shipping_cost = 0
+    else
+      shipping_cost = 15
+    end 
+  end
+
+  def price_total
+    tva + shipping_cost + order.sub_total
+  end
+
   def items_count
-    order_items = order.items.sum(:quantity)
-    
+    order_items = order.items.sum(:quantity) 
   end
   
+  def add_item(product_id:, quantity:)
+    product = Product.find(product_id)
 
-  def add_item(product_id:, quantity: O)
-  
-      product = Product.find(product_id)
       order_item = order.items.find_or_initialize_by(product_id: product_id)
       order_item.price = product.price
       if order_item.quantity.present?
         order_item.quantity += quantity.to_i
       else order_item.quantity = quantity
       end
-    
-      items_count
 
-    
+    items_count
 
     ActiveRecord::Base.transaction do
       order_item.save
