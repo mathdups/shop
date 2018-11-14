@@ -12,6 +12,11 @@ class OrderItemsController < ApplicationController
 
     redirect_to order_items_path  
   end
+
+
+  def new
+    @order = Order.find(params[:id])
+  end
   
   def destroy
     current_cart.remove_item(id: params[:id])

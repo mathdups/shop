@@ -1,3 +1,4 @@
+
 <h2> Checkout </h2>
 
 <%= form_for Order.new, url: checkout_path do |f| %>
@@ -11,9 +12,40 @@
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
   </div>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :id %>
 
-  <%= f.submit 'Checkout' %>
+    <%= f.submit "Checkout" %>
+
+
+  
 
 <% end %>
 
+<%= simple_form_for Order.new, url: checkout_path, method: "post" do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.hidden_field :id, :value => current_user.order_id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.submit "Save Product" %>
+<% end %>
+
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: $5.00</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="500"
+          data-locale="auto"></script>
+<% end %>
 

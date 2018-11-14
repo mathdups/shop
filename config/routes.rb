@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions_or_registrations/new'
+
   get 'users/index'
 
   get 'users/show'
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
   root to: 'categories#index'
 
   resources :categories, only: [:index, :new, :create, :show, :update, :edit, :destroy] do
-    resources :products, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :products, only: [:new, :create, :show, :edit, :update, :destroy]
   end
 
   get '/cart', to: 'order_items#index'
@@ -31,6 +33,8 @@ Rails.application.routes.draw do
 
   get '/admin/', to: 'categories#admin', as: :admin
   resources :charges, only: [:new, :create]
+
+  
   
 
   

@@ -1,7 +1,21 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+
 <% @users.each do |user| %>
-  <h4> <%= user.first_name %> 
-    <%= user.first_name %> 
-    <%= user.email %> </h4> 
+    <%= user.email %>
+    </h4> 
+  
+  <% Order.where(user_id: user.id).each  do |order| %>
+    
+      <li>
+        <%= order.first_name %>
+        <%= order.last_name %> </li>
+
+        <% OrderItem.where(order_id: order.id).each do |item| %>
+        <li>
+          
+          <%= item.price %>
+          <%= item.quantity %></li>
+        <% end %>                       
+      </li> 
+    <% end %>
   <% end %>
+      

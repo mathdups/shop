@@ -46,6 +46,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'mini_magick'
 gem 'carrierwave'
+gem 'haml'
 
 
 
