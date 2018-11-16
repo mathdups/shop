@@ -3,10 +3,22 @@ require "application_responder"
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
   respond_to :html
-
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :current_cart
   # before_action :authenticate_user!
   include Pundit
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password,
+      :password_confirmation, :remember_me, :photo, :photo_cache, :remove_photo) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :email, :password,
+      :password_confirmation, :current_password, :photo, :photo_cache, :remove_photo) }
+  end
+
+    
+
 
   # Pundit: white-list approach.
   # after_action :verify_authorized, except: :index, unless: :skip_pundit?

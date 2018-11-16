@@ -96,6 +96,9 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (1.1.0)
+    devise-i18n (1.7.0)
+      devise (>= 4.5)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.5.0)
@@ -317,6 +320,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   compass-rails
   devise
+  devise-bootstrap-views (~> 1.0)
+  devise-i18n
   dotenv-rails
   faker (~> 1.8.5)
   font-awesome-sass (~> 5.0.9)

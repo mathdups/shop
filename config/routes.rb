@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   get '/cart/checkout', to: 'orders#new', as: :checkout
   post '/cart/checkout', to: 'orders#create'
+  
 
   get '/admin/', to: 'categories#admin', as: :admin
   resources :charges, only: [:new, :create]

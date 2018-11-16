@@ -8,7 +8,7 @@
         (<%= category.products.count %> products) </h4> 
       <% end %>
     </li>
-      <% Product.where(category_id: category.id).each do |product| %>
+      <% @products.where(category_id: category.id).each do |product| %>
           <li><%= link_to category_product_path(category, category.id) do %> 
               <%= product.title %>
               <% end %> 

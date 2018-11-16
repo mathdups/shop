@@ -3,13 +3,13 @@
     <%= user.email %>
     </h4> 
   
-  <% Order.where(user_id: user.id).each  do |order| %>
+  <% @orders.where(user_id: user.id).each  do |order| %>
     
       <li>
         <%= order.first_name %>
         <%= order.last_name %> </li>
 
-        <% OrderItem.where(order_id: order.id).each do |item| %>
+        <% @items.where(order_id: order.id).each do |item| %>
         <li>
           
           <%= item.price %>

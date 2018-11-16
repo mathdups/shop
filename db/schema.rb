@@ -48,6 +48,10 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.string "status", default: "cart"
     t.integer "quantity"
     t.integer "user_id"
+    t.string "address"
+    t.integer "postal_code"
+    t.string "city"
+    t.string "country"
   end
 
   create_table "product_categories", force: :cascade do |t|
@@ -100,6 +104,8 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.string "country"
     t.string "phone"
     t.bigint "order_id"
+    t.string "photo"
+    t.integer "remember_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["order_id"], name: "index_users_on_order_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

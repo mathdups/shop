@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    @orders = Order.all
+    @items = OrderItem.all
   end
 
   def show
+   
   end
 
   def new
+    
   end
 
   def create
@@ -30,6 +34,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :photo)
   end
 end
