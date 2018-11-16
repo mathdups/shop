@@ -1,4 +1,4 @@
-<div class="navbar-shop">
+<div class="navbar-shop sticky">
   <!-- Logo -->
 
   <%= link_to image_tag("Marijuana.png", :border => 0, :alt => '', :title => ''), root_path, :class => 'navbar-shop-brand' %>
@@ -11,7 +11,7 @@
 
       <!-- Links when logged in -->
       <%= link_to "Admin", admin_path, class:"navbar-shop-item navbar-shop-link" %> 
-      <%= link_to "Home", root_path, class:"navbar-shop-item navbar-shop-link" %>
+      <i class="fas fa-shopping-cart"></i><%= link_to "Home", root_path, class:"navbar-shop-item navbar-shop-link " %>
       <%= link_to "Mon panier", order_items_path, class:"navbar-shop-item1 navbar-shop-link1" %>              
      (<%= link_to pluralize(current_cart.items_count, ''), cart_path, class:"navbar-shop-item1 navbar-shop-link1" %>)
     <!-- Avatar with dropdown menu -->

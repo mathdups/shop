@@ -5,20 +5,22 @@ body {
   font-family: $font-default;
   font-weight: 100;
   background-color: white;
-  
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .main-container {
-  margin-left: 70px;
-  margin-right: 70px;
+  top: 70 auto;
   max-width: 100%;
-  padding: 0 0;
-  margin-bottom: 0;
+  padding-top: 70px;
+  position: relative;
+  
 }
 
-h1 {
-  font-weight: 100;
-}
 
 label {
   color: $color-label;
