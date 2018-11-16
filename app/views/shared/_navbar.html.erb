@@ -11,8 +11,6 @@
 
       <!-- Links when logged in -->
       <%= link_to "Admin", admin_path, class:"navbar-shop-item navbar-shop-link" %> 
-      <%= link_to "Admin-users", users_index_path, class:"navbar-shop-item navbar-shop-link" %>
-      <%= link_to "Espace client", users_show_path, class:"navbar-shop-item navbar-shop-link" %>
       <%= link_to "Home", root_path, class:"navbar-shop-item navbar-shop-link" %>
       <%= link_to "Mon panier", order_items_path, class:"navbar-shop-item1 navbar-shop-link1" %>              
      (<%= link_to pluralize(current_cart.items_count, ''), cart_path, class:"navbar-shop-item1 navbar-shop-link1" %>)

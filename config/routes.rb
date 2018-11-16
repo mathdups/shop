@@ -1,21 +1,7 @@
 Rails.application.routes.draw do
-  get 'sessions_or_registrations/new'
-
-  get 'users/index'
-
-  get 'users/show'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/edit'
-
-  get 'users/update'
-
-  get 'users/destroy'
-
   devise_for :users
+
+  
   devise_for :orders, :controllers => {:sessions => 'sessions'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
