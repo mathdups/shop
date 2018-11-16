@@ -1,4 +1,6 @@
    <%= simple_form_for @product, url: category_product_path, method: "patch" do |f| %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
 
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control' %>

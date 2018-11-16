@@ -47,6 +47,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'haml'
+gem 'devise-i18n'
+gem 'devise-bootstrap-views', '~> 1.0'
 
 
 

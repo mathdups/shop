@@ -3,10 +3,12 @@ class CategoriesController < ApplicationController
   
   def index
     @categories = Category.joins(:products).select('categories.*, count(products.id) as products_count').group('categories.id').order(:title)
+    
   end
 
   def admin 
     @categories = Category.joins(:products).select('categories.*, count(products.id) as products_count').group('categories.id').order(:title)
+    @products = Product.all
   end
 
     def new

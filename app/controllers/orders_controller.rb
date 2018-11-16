@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
   # end
   
 
+
   
 
   def conditions
@@ -34,6 +35,7 @@ class OrdersController < ApplicationController
       end
    
   end
+
 
   
 
