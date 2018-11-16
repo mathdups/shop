@@ -6,17 +6,16 @@
    <% if current_user.photo.url.present? %>
       <%= image_tag(current_user.photo.url) %>
       <%= f.label :remove_photo do %>
-        <%= f.check_box :remove_photo %>
+        <%= f.check_box :remove_photo %> <div > "Cocher pour supprimer la photo" </div>
         <%= f.file_field :photo %>  
         <%= f.hidden_field :photo_cache %>
         <% end %>
    <% elsif current_user.photo.url == nil %>
-    <div class="form-group">
         <%= f.label :photo do %>
           <%= f.file_field :photo %>
           <%= f.hidden_field :photo_cache %>
+          <%= f.submit class: 'btn btn-primary' %>
         <% end %>
-      </div>
     <% end %>
     
 

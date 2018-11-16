@@ -237,11 +237,22 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
   }
 }
 
+.card-container {
+  object-fit: cover;
+}
+
+.card-product {
+  box-shadow: 0 2px 7px #dfdfdf;
+  width: 30rem;
+  
+ 
+}
 .card-product .img-wrap {
     border-radius: 3px 3px 0 0;
     overflow: hidden;
     position: relative;
     height: 220px;
+    max-width: 300px;
     text-align: center;
 }
 .card-product .img-wrap img {
