@@ -14,10 +14,10 @@
          <% Product.where(category_id: category.id).each do |product| %>
          <div class="container-fluid">
           <div class="row">
-            <div class="col-md-4 col-sd-6 col-xs-12">
+            <div class="col-ld-3 col-md-4 col-sd-6 col-xs-12">
               <div class="card-container" >
                 <figure class="card card-product">
-                  <div class="img-wrap hover"><%= cl_image_tag product.photo, height: 400, width: 500, crop: :fill %></div>
+                  <div class="img-wrap hover"><%= cl_image_tag product.photo, height: 400, width: 500, crop: :fit %></div>
                   <figcaption class="info-wrap">
                       <%= link_to category_product_path(category.id, product.id) do %>
                         <h3><%= product.title %> <% end %> </h3> 
@@ -37,6 +37,7 @@
                       <div class="form-group col-xs-4 col-sd-4 col-md-4 ">                 
                           <%= hidden_field_tag :product_id, product.id %>
                           <%= hidden_field_tag :category_id, category.id %>
+                          <%= hidden_field_tag :photo, product.photo %>
                           <%= number_field_tag :quantity, 1, class: "form-control", min: "1", max: "10"%>      
                       </div>
                       <div class="form-group col-sd-4"> 

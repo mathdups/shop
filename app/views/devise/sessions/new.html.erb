@@ -1,26 +1,76 @@
-<div class="panel panel-default devise-bs">
-  <div class="panel-heading">
-    <h4><%= t('.sign_in', default: 'Sign in') %></h4>
-  </div>
-  <div class="panel-body">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
-      </div>
-      <% if devise_mapping.rememberable? %>
-        <div class="checkbox">
-          <%= f.label :remember_me do %>
-            <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Remember me') %>
-          <% end %>
+<div class="container" >
+  <div class="row">
+    <div class="col-ld-3 col-md-4 col-sd-6 col-xs-12">
+      <div class="registration">
+        <div class="registration-new">
+          <%= bootstrap_devise_error_messages! %>
+          <div class="panel panel-default devise-bs">
+            <div class="panel-heading">
+              <h4><%= t('.sign_up', default: 'Sign up') %></h4>
+            </div>
+            <div class="panel-body">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { role: 'form', multipart: :true }) do |f| %>
+                <div class="form-group">
+                  <%= f.label :photo do %>
+                    <%= f.file_field :photo %>
+                    <%= f.hidden_field :photo_cache %>
+                  <% end %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, class: 'form-control' %>
+                </div>
+                <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
+              <% end %>
+            </div>
+          </div>
+          <%= render 'devise/shared/links' %>
         </div>
-      <% end %>
-      <%= f.submit  t('.sign_in', default: 'Sign in'), class: 'btn btn-primary' %>
-    <% end %>
+      </div>
+    </div>
+
+
+
+      
+    <div class="row">
+      <div class="col-ld-6 col-md-6 col-sd-12 col-xs-12">
+        <div class="registration-new"  >
+          <div class="panel panel-default devise-bs">
+            <div class="panel-heading">
+              <h4><%= t('.sign_in', default: 'Sign in') %></h4>
+            </div>
+            <div class="panel-body">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
+                <div class="form-group">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
+                </div>
+                <% if devise_mapping.rememberable? %>
+                  <div class="checkbox">
+                    <%= f.label :remember_me do %>
+                      <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Remember me') %>
+                    <% end %>
+                  </div>
+                <% end %>
+                <%= f.submit  t('.sign_in', default: 'Sign in'), class: 'btn btn-primary' %>
+              <% end %>
+            </div>
+          </div>
+          <%= render 'devise/shared/links' %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<%= render 'devise/shared/links' %>
