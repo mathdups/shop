@@ -1,8 +1,10 @@
 <div class="navbar-shop sticky">
   <!-- Logo -->
 
-  <%= link_to image_tag("Marijuana.png", :border => 0, :alt => '', :title => ''), root_path, :class => 'navbar-shop-brand' %>
-
+  
+  <%= link_to root_path, class:"navbar-shop-logo" do %>  
+      <i class="fas fa-cannabis" path="root_path"></i>
+      <% end %> 
   <!-- Right Navigation -->
   <div class="navbar-shop-right hidden-xs hidden-sm">
 
@@ -11,9 +13,12 @@
 
       <!-- Links when logged in -->
       <%= link_to "Admin", admin_path, class:"navbar-shop-item navbar-shop-link" %> 
-      <i class="fas fa-shopping-cart"></i><%= link_to "Home", root_path, class:"navbar-shop-item navbar-shop-link " %>
-      <%= link_to "Mon panier", order_items_path, class:"navbar-shop-item1 navbar-shop-link1" %>              
-     (<%= link_to pluralize(current_cart.items_count, ''), cart_path, class:"navbar-shop-item1 navbar-shop-link1" %>)
+      <%= link_to "Home", root_path, class:"navbar-shop-item navbar-shop-link " %>
+      <%= link_to order_items_path, class:"navbar-shop-item1 navbar-shop-link1" do %>  
+      <i class="fas fa-shopping-cart" path="order_items_path"></i>
+      <% end %>  (
+
+      <%= link_to pluralize(current_cart.items_count, ''), cart_path, class:"navbar-shop-item1 navbar-shop-link1" %>)
     <!-- Avatar with dropdown menu -->
       <div class="navbar-shop-item">
         <div class="dropdown">

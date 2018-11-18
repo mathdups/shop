@@ -1,44 +1,68 @@
-<div class="container">
-  <ul>
+<div class="banner" >
+  <div class="banner-content">
+    <h1>WELCOME TO W33D4LIF3</h1>
+    <p>Venez découvrir les vertus de l'herbe légale.</p>
+  </div>
+</div>
+<div class="container"> 
     <% @categories.each do |category| %>
     <li>
       <%= link_to category_path(category) do %>
-              <h4> <%= category.title %> 
-              (<%= category.products.count %> products!) </h4> 
-            <% end %> 
-        <% Product.where(category_id: category.id).each do |product| %>
+        <h1> <%= category.title %> 
+        (<%= category.products.count %>) </h1> 
+        <% end %> 
+         <% Product.where(category_id: category.id).each do |product| %>
+         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 col-sd-6 col-xs-12">
               <div class="card-container" >
                 <figure class="card card-product">
-                  <div class="img-wrap"><%= cl_image_tag product.photo, height: 400, width: 500, crop: :fill %></div>
+                  <div class="img-wrap hover"><%= cl_image_tag product.photo, height: 400, width: 500, crop: :fill %></div>
                   <figcaption class="info-wrap">
-                      <h4 class="title"><%= link_to category_product_path(category.id, product.id) do %> 
-                      <%= product.title %> <% end %>
-                      <h6 class="desc"><%= product.short_description %></h6>
-                      <div class="rating-wrap">
-                        <div class="label-rating">132 reviews</div>
-                        <div class="label-rating">154 orders </div>
-                      </div> <!-- rating-wrap.// -->
+                      <%= link_to category_product_path(category.id, product.id) do %>
+                        <h3><%= product.title %> <% end %> </h3> 
+                      <div class="desc">
+                        <p><%= product.short_description %>
+                        <%= link_to category_product_path(category.id, product.id) do %>
+                          <i class="far fa-arrow-alt-circle-right"></i></p> 
+                          <%end%>
+                        <div class="price-wrap">
+                          <span class="price-new"><%= number_to_currency product.price %></span>
+                          <del class="price-old"><%=number_to_currency product.price * 1.02 %> </del> 
+                        </div>
+                       <!-- rating-wrap.// -->
                   </figcaption>
                   <div class="bottom-wrap">
-                  <%= form_tag order_items_path do %>
-                  <%= hidden_field_tag :product_id, product.id %>
-                  <%= hidden_field_tag :category_id, category.id %>
-                  <%= number_field_tag :quantity, 1 %>
-                  <%= submit_tag "Add to Cart" %>	<% end %>
-                    <div class="price-wrap h5">
-                      <span class="price-new"><%= number_to_currency product.price %></span> <del class="price-old">$1980</del>
-                  </div> <!-- price-wrap.// -->
+                    <form class="form-inline" action="/cart/items" method="POST">
+                      <div class="form-group col-xs-4 col-sd-4 col-md-4 ">                 
+                          <%= hidden_field_tag :product_id, product.id %>
+                          <%= hidden_field_tag :category_id, category.id %>
+                          <%= number_field_tag :quantity, 1, class: "form-control", min: "1", max: "10"%>      
+                      </div>
+                      <div class="form-group col-sd-4"> 
+                        <%= submit_tag "Add to Cart", class: "btn btn-primary" %>	
+                      </div>
+                    </form>
+                      
+
+                     <!-- price-wrap.// -->
                 </div> <!-- bottom-wrap.// -->
               </figure>
-            </div>
-          </div> <!-- col // -->
+          </div> <!-- col // --> 
+        </div>
         <% end %>
-      </li>
+        </li>
     <% end %>
-  <ul>
+    
+
+
 </div>
+
+
+
+
+
+
 
 
 

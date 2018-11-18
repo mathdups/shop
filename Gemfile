@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3'
-gem 'font-awesome-sass', '~> 5.0.9'
+gem 'font-awesome-sass', '~> 5.5'
 gem 'webpacker'
 gem 'autoprefixer-rails'
 gem 'pundit'
@@ -49,6 +49,9 @@ gem 'carrierwave'
 gem 'haml'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'elevatezoom-rails'
+gem 'jquery-rails'
+gem 'elevatezoom-rails'
 
 
 

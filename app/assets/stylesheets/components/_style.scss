@@ -71,7 +71,6 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
     text-align: center;
     img {
       width: 100px;
-      padding-top: 15px;
     }
   }
   
@@ -237,12 +236,10 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
   }
 }
 
-.card-container {
-  object-fit: cover;
-}
+
 
 .card-product {
-  box-shadow: 0 2px 7px #dfdfdf;
+  box-shadow: 0 2px 8px $gray;
   width: 30rem;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
@@ -260,11 +257,26 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
     max-height: 100%;
     max-width: 100%;
     object-fit: cover;
+    /* La transition s'applique à la fois sur la largeur et la hauteur, avec une durée d'une seconde. */
+    -webkit-transition: all 1s ease; /* Safari et Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -ms-transition: all 1s ease; /* Internet Explorer 9 */
+    -o-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+    .image:hover img {
+    /* L'image est grossie de 25% */
+    -webkit-transform:scale(1.25); /* Safari et Chrome */
+    -moz-transform:scale(1.25); /* Firefox */
+    -ms-transform:scale(1.25); /* Internet Explorer 9 */
+    -o-transform:scale(1.25); /* Opera */
+    transform:scale(1.25);
+    }
 }
 .card-product .info-wrap {
     overflow: hidden;
     padding: 15px;
     border-top: 1px solid #eee;
+    min-height: 219.22px;
 }
 .card-product .bottom-wrap {
     padding: 15px;
@@ -278,13 +290,30 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
 }
 
 .card-product .price-old {
-    color: #999;
+    color: $gray;
 }
 
+.card-product .price-old {
+  color: $gray;
+  font-size: 15px;
+}
+
+.card-product .price-new {
+  color: $red;
+  font-size: 25px;
+}
 
 .fas .fa-shopping-cart {
   font-size: 1.4em
 }
 
+.price-wrap {
+  justify-content: center;
+  display: flex;
+  padding-top: 10px;
+}
 
+.desc {
+  padding-top: 10px;
+}
 

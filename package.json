@@ -10,6 +10,7 @@
     "devise": "^1.0.9",
     "jquery": "^3.3.1",
     "jquery-min": "^0.0.2",
+    "jquery-ujs": "^1.2.2",
     "lint": "^1.1.2",
     "poper": "^0.1.1",
     "popper": "^1.0.1",

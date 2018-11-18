@@ -105,6 +105,7 @@ GEM
     dotenv-rails (2.5.0)
       dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
+    elevatezoom-rails (1.0.0)
     erubi (1.7.1)
     execjs (2.7.0)
     faker (1.8.7)
@@ -115,7 +116,7 @@ GEM
     ffi (1.9.25-java)
     ffi (1.9.25-x64-mingw32)
     ffi (1.9.25-x86-mingw32)
-    font-awesome-sass (5.0.13)
+    font-awesome-sass (5.5.0.1)
       sassc (>= 1.11)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -129,6 +130,10 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery-rails (4.3.3)
+      rails-dom-testing (>= 1, < 3)
+      railties (>= 4.2.0)
+      thor (>= 0.14, < 2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -323,10 +328,12 @@ DEPENDENCIES
   devise-bootstrap-views (~> 1.0)
   devise-i18n
   dotenv-rails
+  elevatezoom-rails
   faker (~> 1.8.5)
-  font-awesome-sass (~> 5.0.9)
+  font-awesome-sass (~> 5.5)
   haml
   jbuilder (~> 2.5)
+  jquery-rails
   listen (>= 3.0.5, < 3.2)
   mini_magick
   pg (~> 0.18)

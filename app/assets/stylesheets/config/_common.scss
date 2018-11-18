@@ -7,20 +7,54 @@ body {
   background-color: white;
 }
 
+h1, h2, h3, h4, h5 {
+  color: #1f1f1f;
+  outline: none;
+}
+
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
 }
 
-.main-container {
-  top: 70 auto;
+.container {
+
   max-width: 100%;
-  padding-top: 70px;
+  padding: 40px;
   position: relative;
-  
+  color: $light-gray;
+  top: 70;
 }
 
+.banner {
+  
+  text-align: center;
+  height: 40vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  object-fit: cover;
+  background-image: url("weed-plantes.jpg");
+  background-color: rgba(255,255,255, .5);
+  font-weight: bold;
+}
+
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0.1em 0.1em 0.05em rgba(0,0,0,0.6);
+}
+.banner p {
+  font-size: 25px;
+  font-weight: lighter;
+  margin-bottom: 50px;
+  color: white;
+  text-shadow: 0.1em 0.1em 0.05em rgba(0,0,0,0.4);
+}
 
 label {
   color: $color-label;
@@ -29,3 +63,30 @@ label {
 .shopping-cart {
   margin-top: -45px;
 }
+
+
+.card-container {
+  object-fit: cover;
+  padding-bottom: 25px;
+}
+
+
+/* Zoom In #1 */
+.hover .card .card-product img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover figure:hover img {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+.product-title-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
