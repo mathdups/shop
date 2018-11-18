@@ -4,7 +4,7 @@ body {
   padding: 0;
   font-family: $font-default;
   font-weight: 100;
-  background-color: white;
+  background-color: $beige;
 }
 
 h1, h2, h3, h4, h5 {
@@ -13,16 +13,27 @@ h1, h2, h3, h4, h5 {
  
 }
 
+h1 {
+  color: $dark-green;
+  font-size: 45px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0.1em 0.1em 0.06em rgba(0,0,0,0.2);
+  
+}
+
 ul, li {
   list-style-type:none;
 }
 
 
+.text-decoration {
+  text-decoration: none;
+}
 
 .container {
 
   max-width: 100%;
- 
   position: relative;
   color: $light-gray;
 
@@ -41,6 +52,10 @@ ul, li {
   background-image: url("weed-plantes.jpg");
   background-color: rgba(255,255,255, .5);
   font-weight: bold;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
   
 }
 
@@ -70,6 +85,7 @@ label {
 .card-container {
   object-fit: cover;
   padding-bottom: 25px;
+  
 }
 
 
@@ -97,3 +113,9 @@ label {
 }
 
 
+.edit-photo {
+  width: 200px;
+  height: 200px;
+  
+
+}
