@@ -241,8 +241,16 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
 .card-product {
   box-shadow: 0 2px 8px $gray;
   width: 30rem;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+
   background-size: cover !important;
+
+  h3 {
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  }
+
+  p {
+    text-shadow: 0 1px 1px rgba(0,0,0,0.6);
+  }
 
 }
 .card-product .img-wrap {

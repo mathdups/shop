@@ -51,7 +51,6 @@ gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'elevatezoom-rails'
 gem 'jquery-rails'
-gem 'elevatezoom-rails'
 
 
 
