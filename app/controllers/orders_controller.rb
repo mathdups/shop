@@ -17,7 +17,10 @@ class OrdersController < ApplicationController
   # end
   
 
-
+  def new
+    @order = Order.new
+  end
+  
   
 
   def conditions
@@ -27,13 +30,25 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_cart.order
-    
       if @order.update_attributes(order_params.merge(status: 'open'))
         redirect_to root_path
       else 
         redirect_to checkout_path
       end
-   
+  end
+
+  def update
+    @order = current_cart.order
+    if @order.update_attributes(order_params)
+      redirect_to checkout_path, notice: "Profile updated"
+    else
+      redirect_to checkout_path
+    end
+  end
+
+  def edit
+    @order = @order.find(params[:id])
+    
   end
 
 
@@ -45,6 +60,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:first_name, :last_name, :user_id, :order_id)
+    params.require(:order).permit(:first_name, :last_name, :address, :postal_code, :city, :user_id)
   end
 end

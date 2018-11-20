@@ -1,49 +1,97 @@
 
-<h2> Checkout </h2>
+<div class="container">
+  <div class="row">
+    <div class="col-ld-12 col-md-6 col-sd-6 col-xs-6">
+      <h1> Paiement </h1>
+      <h2> Info commande en cours</h2>
+      <ul>   
+        <% current_cart.order.items.each do |item| %>
+          <li>
+            <h3><%= item.product.category.title %> </h3>
+            <h5><%= item.product.title %><h5>
+            <p><%= item.product.price %> x <%= item.quantity.to_i %></p>
+            <p><%= price = item.product.price * item.quantity %>
+          <% end %>
+          
+        </li>
+      </ul>
+      <button type="button" class="btn btn-primary" style="color: white"><%= link_to 'Modif Cart', cart_path %></button>
+    </div>
+    <div class="col-ld-12 col-md-6 col-sd-6 col-xs-6">
+      <h2>Infos personnelles </h2>
 
-<%= form_for Order.new, url: checkout_path do |f| %>
-
-  <div class="form-group">
-    <%=f.label :first_name %>
-    <%= f.text_field :first_name %>
+      <% if current_user.first_name == nil %>
+        <h2> Nous ne disposons pas de vos informations personnelles. Veuillez les update ici </h2>
+        <button type="button" class="btn btn-primary"><%= link_to 'Update', edit_user_registration_path %></button>
+      <% else %>
+        <ul>
+          <li> <h4> <%= current_user.first_name %> </li>
+           <li> <%= current_user.last_name %></li>
+           <li> <%= current_user.address %></li>  
+           <li> <%= current_user.postal_code %></li>
+           <li> <%= current_user.city %></h4></li>
+          
+        </ul> 
+      <button type="button" class="btn btn-secondary"><%= link_to 'Update', edit_user_registration_path %></button>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-    <%= f.hidden_field :user_id %>
-    <%= f.hidden_field :id %>
-
-    <%= f.submit "Checkout" %>
+        
 
 
-  
+      <%= form_tag charges_path, id:'chargeForm' do %>
 
-<% end %>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+        <%= hidden_field_tag 'stripeToken' %>
+        <%= hidden_field_tag 'stripeEmail' %>
+        <%= hidden_field_tag 'amount', current_cart.price_total * 100 %>
+        <button id="btn-buy" type="btn" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Buy this!</button>
 
-<%= simple_form_for Order.new, url: checkout_path, method: "post" do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :address %>
-  <%= f.input :city%>
-  <%= f.input :postal_code %>
-  <%= f.hidden_field :id, :value => current_user.order_id %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.submit "Save Product" %>
-<% end %>
+  <% end%> 
+</div>
+    <script src="https://checkout.stripe.com/checkout.js"> </script>
+  <script >
+    var handler = StripeCheckout.configure({
+      key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+      token: function(token, arg) {
+        document.getElementById("stripeToken").value = token.id;
+        document.getElementById("stripeEmail").value = token.email;
 
-<%= form_tag charges_path do %>
-  <article>
+        document.getElementById("chargeForm").submit();
+        }
+  });
+  document.getElementById('btn-buy').addEventListener('click', function(e) {
+    handler.open({
+      user: "Blabla",
+      description: "Buy this item for 4.99$",
+      amount: document.getElementById("amount").value
+      });
+      e.preventDefault();
+    })
+  </script>
+
+
+                
+
+      
+    
+
+
+
+<%= form_tag charges_path id:'chargeForm' do %>
+  <%= hidden_field_tag 'stripeToken' %>
+        <%= hidden_field_tag 'stripeEmail' %>
+
     <% if flash[:error].present? %>
       <div id="error_explanation">
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <span>Amount: $5.00</span>
-    </label>
-  </article>
+
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -51,4 +99,3 @@
           data-amount="500"
           data-locale="auto"></script>
 <% end %>
-

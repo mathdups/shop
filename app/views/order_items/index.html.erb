@@ -21,7 +21,7 @@
             </div>
             <div class="product-details">
               <div class="product-title"><%= link_to item.product.title, category_product_path(item.id, item.product_id) %></div>
-              <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
+              <p class="product-description"><%=item.product.short_description%></p>
             </div>
             <div class="product-price"><%= item.product.price %></div>
             <div class="product-quantity">
@@ -34,6 +34,7 @@
             </div>
             <div class="product-line-price">
               <%= item.price * item.quantity %>
+              
             </div>
           </div>
         <% end %>
@@ -59,6 +60,8 @@
           <div class="totals-value" id="cart-total"> <%= current_cart.price_total %> </div>
         </div>
       </div>
+      
+        
          <button type="submit" class="btn btn-primary"><%= link_to 'Checkout', checkout_path %></button>         
           <%= form_tag charges_path do %>
           <article>

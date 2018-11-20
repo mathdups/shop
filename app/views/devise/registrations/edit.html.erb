@@ -43,6 +43,26 @@
 
       <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
     </div>
+    <div class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :postal_code %>
+      <%= f.text_field :postal_code, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :city %>
+      <%= f.text_field :city, class: 'form-control' %>
+    </div>
 
     <div class="form-group">
       <%= f.submit t('.update'), class: 'btn btn-primary' %>
