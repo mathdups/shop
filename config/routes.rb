@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get '/admin/', to: 'categories#admin', as: :admin
   resources :charges, only: [:new, :create]
 
+  resources :purchases, only: [:show]
+
   
   
 

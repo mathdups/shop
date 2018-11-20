@@ -48,7 +48,9 @@
           <% end %>
         <%= hidden_field_tag 'stripeToken' %>
         <%= hidden_field_tag 'stripeEmail' %>
-        <%= hidden_field_tag 'amount', current_cart.price_total * 100 %>
+        <%= hidden_field_tag order_id: current_cart.order.id %>
+        
+        <%= hidden_field_tag 'amount', current_cart.price_total.to_i * 100 %>
         <button id="btn-buy" type="btn" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Buy this!</button>
 
   <% end%> 
@@ -81,21 +83,3 @@
     
 
 
-
-<%= form_tag charges_path id:'chargeForm' do %>
-  <%= hidden_field_tag 'stripeToken' %>
-        <%= hidden_field_tag 'stripeEmail' %>
-
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"
-          data-locale="auto"></script>
-<% end %>
