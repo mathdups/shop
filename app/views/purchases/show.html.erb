@@ -14,16 +14,17 @@
           <p><strong>RECEIPT</strong></p>
           <div id="receipt-details" class="row clearfix">
             <div class="col-sm-8 receipt-left">
-              <p><strong class="font-weight-heavy">Your Product</strong><br/> <span class="font-weight-light">What you sold</span></p>
+              <p><strong>Votre weed va bientôt arriver</strong></p>
             </div>
             <div class="col-sm-4">
-              <%= current_cart.order.sub_total %>
+              <%= @order.status %>
+              <%= @order.sub_total %>
+             
+        
             </div>
           </div>
 
-          <%= form_for Order.new, url: checkout_path do |f| %>
-            <%= f.submit 'Checkout' %>
-          <% end %>
+          <
 
 
           <button type="submit" class="btn btn-primary"><%= link_to 'Checkout', checkout_path %></button> 
