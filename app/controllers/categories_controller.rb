@@ -15,6 +15,10 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
+  def blabla
+    @categories = Category.joins(:products).select('categories.*, count(products.id) as products_count').group('categories.id').order(:title)
+  end
+
   def edit 
     @category = Category.find(params[:id])
   end

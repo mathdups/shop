@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   resources :purchases, only: [:show]
 
+  get '/blabla/', to: 'categories#blabla'
+
   
   
 
