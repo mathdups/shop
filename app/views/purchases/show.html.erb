@@ -1,2 +1,48 @@
-<p> This is your purchase </p>
-<p> your purchase is <%= @purchase.inspect %></p>
+
+
+
+<section class="h-100">
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-12" >
+
+    <section id="content-receipt" class="clearfix">
+      <div id="receipt-container">
+        <div class="dotmatrix left"></div>
+        <div id="receipt-content">
+          <h4 id="receipt-title">Thank You!</h4>
+          <p><strong>RECEIPT</strong></p>
+          <div id="receipt-details" class="row clearfix">
+            <div class="col-sm-8 receipt-left">
+              <p><strong class="font-weight-heavy">Your Product</strong><br/> <span class="font-weight-light">What you sold</span></p>
+            </div>
+            <div class="col-sm-4">
+              <%= current_cart.order.sub_total %>
+            </div>
+          </div>
+
+          <%= form_for Order.new, url: checkout_path do |f| %>
+            <%= f.submit 'Checkout' %>
+          <% end %>
+
+
+          <button type="submit" class="btn btn-primary"><%= link_to 'Checkout', checkout_path %></button> 
+          <footer id="receipt-footer">
+            <small>Your purchase is complete. We hope you enjoy it!</small>
+          </footer>
+        </div>
+        <div class="dotmatrix right"></div>
+      </div>
+      <div id="receipt-shadow"></div>
+    </section>
+  </div>
+
+  </div>
+  </div>
+
+</section>
+
+
+
+
+

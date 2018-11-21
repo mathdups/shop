@@ -1,6 +1,11 @@
 class ChargesController < ApplicationController
  
 
+def update_order
+  order = Order.find_by(id: current_cart.order.id) 
+  order.status = 'open'
+  order.save
+end
   def create
     # Amount in cents
 
@@ -20,10 +25,15 @@ class ChargesController < ApplicationController
   purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken],
      amount: params[:amount], description: charge.description, currency: charge.currency,
      customer_id: customer.id, order_id: current_cart.order.id)
-  redirect_to purchase
+     redirect_to purchase
+     update_order
+     
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
+  
+  
 end

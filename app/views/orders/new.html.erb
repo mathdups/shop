@@ -1,4 +1,18 @@
 
+<%= form_for Order.new, url: checkout_path do |f| %>
+
+
+  <div class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <%= f.submit 'Checkout' %>
+
+<% end %>
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-ld-12 col-md-6 col-sd-6 col-xs-6">
@@ -36,9 +50,6 @@
       <% end %>
     </div>
   </div>
-        
-
-
       <%= form_tag charges_path, id:'chargeForm' do %>
 
           <% if flash[:error].present? %>
@@ -47,12 +58,9 @@
             </div>
           <% end %>
         <%= hidden_field_tag 'stripeToken' %>
-        <%= hidden_field_tag 'stripeEmail' %>
-        <%= hidden_field_tag order_id: current_cart.order.id %>
-        
+        <%= hidden_field_tag 'stripeEmail' %> 
         <%= hidden_field_tag 'amount', current_cart.price_total.to_i * 100 %>
         <button id="btn-buy" type="btn" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Buy this!</button>
-
   <% end%> 
 </div>
     <script src="https://checkout.stripe.com/checkout.js"> </script>
