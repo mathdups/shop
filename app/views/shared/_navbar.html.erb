@@ -45,8 +45,12 @@
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-shop-item navbar-shop-link" %>
-      <%= link_to "Mon panier", order_items_path, class: "navbar-shop-item navbar-shop-link" %>
-      <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %>
+      <%= link_to "Home", root_path, class:"navbar-shop-item navbar-shop-link " %>
+      <%= link_to order_items_path, class:"navbar-shop-item1 navbar-shop-link1" do %>  
+      <i class="fas fa-shopping-cart" path="order_items_path"></i>
+      <% end %>  (
+
+      <%= link_to pluralize(current_cart.items_count, ''), cart_path, class:"navbar-shop-item1 navbar-shop-link1" %>)
     <% end %>
   </div>
 

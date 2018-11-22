@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get '/blabla/', to: 'categories#blabla'
 
+  resources :users, only: [:update]
+
   
   
 

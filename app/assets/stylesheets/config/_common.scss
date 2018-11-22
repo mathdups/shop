@@ -4,8 +4,17 @@ body {
   padding: 0;
   font-family: $font-default;
   font-weight: 100;
-  background-color: $beige;
+  background: linear-gradient(to right, rgb(205, 243, 210), rgb(229, 247, 222));
 }
+
+a {
+  color: white;
+}
+
+.float-right {
+  float: right;
+}
+
 
 h1, h2, h3, h4, h5 {
   color: #1f1f1f;
@@ -14,12 +23,14 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  color: $dark-green;
-  font-size: 45px;
-  font-weight: bold;
+  font-size: 32px;
+  text-shadow: -1px -1px $blue, 1px 1px #060, -3px 0 4px #000;
+  color: $blue;
+  padding:15px;
+  font-weight:lighter;
+  text-align:center;
+  display:block;
   text-decoration: none;
-  text-shadow: 0.1em 0.1em 0.06em rgba(0,0,0,0.2);
-  
 }
 
 ul, li {
@@ -36,12 +47,10 @@ ul, li {
   max-width: 100%;
   position: relative;
   color: $light-gray;
-
 }
 
 
 .banner {
-  
   text-align: center;
   height: 40vh;
   width: 100%;
@@ -56,8 +65,7 @@ ul, li {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
-  padding-right: 15px;
-  
+  padding-right: 15px;  
 }
 
 .banner h1 {
@@ -108,10 +116,7 @@ label {
 }
 
 
-.registration {
-  display: flex;
-  justify-content: space-around;
-}
+
 
 
 .edit-photo {
@@ -239,7 +244,8 @@ img {
 .card {
   box-shadow: 0 2px 20px $gray;
 	background: white;
-  margin-bottom: 2em;	
+  margin-bottom: 1.5em;	
+  margin-top: 1.5em;
   h3 {
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   }
@@ -333,8 +339,25 @@ transition: all 1s ease;
 }
 
 /* Flexbox stuff */
+@media (max-width: 480px) {
+  .container {
+    padding:0;
+    margin:0;
+  }
 
-@media screen and (min-width: 43em) {
+  body {
+    padding:0;
+  }
+
+  .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom:0;
+  }
+}
+
+
+@media screen and (min-width: 30em) {
     .cards {
         display: flex;
         flex-wrap: wrap;
@@ -344,6 +367,8 @@ transition: all 1s ease;
     .card {
         flex: 0 1 calc(50% - 1em);
     }
+  
+    
 
 }
 
@@ -352,6 +377,13 @@ transition: all 1s ease;
 
   .card {
       flex: 0 1 calc(33% - 1em);
+  }
+}
+
+@media screen and (min-width: 100em) {
+
+  .card {
+      flex: 0 1 calc(25% - 1em);
   }
 }
 

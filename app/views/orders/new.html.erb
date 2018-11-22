@@ -1,53 +1,57 @@
-
-<%= form_for Order.new, url: checkout_path do |f| %>
-
-
-  <div class="form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-
-  <%= f.submit 'Checkout' %>
-
-<% end %>
-
-
-
 <div class="container">
   <div class="row">
-    <div class="col-ld-12 col-md-6 col-sd-6 col-xs-6">
       <h1> Paiement </h1>
-      <h2> Info commande en cours</h2>
-      <ul>   
+    <div class="col-xs-12 col-sd-12 col-md-6 ">
+      <h2> Info commande en cours</h2>  
         <% current_cart.order.items.each do |item| %>
-          <li>
             <h3><%= item.product.category.title %> </h3>
-            <h5><%= item.product.title %><h5>
-            <p><%= item.product.price %> x <%= item.quantity.to_i %></p>
-            <p><%= price = item.product.price * item.quantity %>
-          <% end %>
-          
-        </li>
-      </ul>
+            <h5>Name: <%= item.product.title %><h5>
+            <p>Price: <%= item.product.price %> Quantity: <%= item.quantity.to_i %></p>
+            <% end %>
+            <br>
+            <p>Sub-Total: <%= current_cart.sub_total %>€</p>
+            <p>Shipping Cost: <%= current_cart.shipping_cost %>€</p>
+            <p>TVA: <%= current_cart.tva %>€</p>
+            <p>Price Total: <%= current_cart.price_total %>€</p>
+
       <button type="button" class="btn btn-primary" style="color: white"><%= link_to 'Modif Cart', cart_path %></button>
     </div>
     <div class="col-ld-12 col-md-6 col-sd-6 col-xs-6">
       <h2>Infos personnelles </h2>
+      <%= bootstrap_devise_error_messages! %>
+      <div class="panel panel-default devise-bs">
 
-      <% if current_user.first_name == nil %>
-        <h2> Nous ne disposons pas de vos informations personnelles. Veuillez les update ici </h2>
-        <button type="button" class="btn btn-primary"><%= link_to 'Update', edit_user_registration_path %></button>
-      <% else %>
-        <ul>
-          <li> <h4> <%= current_user.first_name %> </li>
-           <li> <%= current_user.last_name %></li>
-           <li> <%= current_user.address %></li>  
-           <li> <%= current_user.postal_code %></li>
-           <li> <%= current_user.city %></h4></li>
-          
-        </ul> 
-      <button type="button" class="btn btn-secondary"><%= link_to 'Update', edit_user_registration_path %></button>
-      <% end %>
+        <%= simple_form_for current_user, method: "patch", path: "/cart/checkout/" do |f| %>
+
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name, class: 'form-control' %>
+
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name, class: 'form-control' %>
+
+              <%= f.label :address %>
+              <%= f.text_field :address, class: 'form-control' %>
+
+              <%= f.label :city %>
+              <%= f.text_field :city, class: 'form-control' %>
+
+              <%= f.label :postal_code %>
+              <%= f.text_field :postal_code, class: 'form-control' %>
+
+              <%= f.label :country %>
+              <%= f.text_field :country, class: 'form-control' %>
+
+              <% if devise_mapping.rememberable? %>
+                    <div class="checkbox">
+                      <%= f.label :remember_me do %>
+                        <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Remember me') %>
+                      <% end %>
+                    </div>
+                  <% end %>
+
+              <%= f.submit "Update Profil", class: "btn btn-primary", path: 'checkout_patch' %>
+            <% end %>
+      </div>
     </div>
   </div>
       <%= form_tag charges_path, id:'chargeForm' do %>
@@ -62,8 +66,7 @@
         <%= hidden_field_tag 'amount', current_cart.price_total.to_i * 100 %>
         <button id="btn-buy" type="btn" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Buy this!</button>
   <% end%> 
-</div>
-    <script src="https://checkout.stripe.com/checkout.js"> </script>
+</div> 
   <script >
     var handler = StripeCheckout.configure({
       key: '<%= Rails.configuration.stripe[:publishable_key] %>',
@@ -83,6 +86,8 @@
       e.preventDefault();
     })
   </script>
+
+ 
 
 
                 

@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+
   end
   
   
@@ -40,6 +41,7 @@ class OrdersController < ApplicationController
   def update
     @order = current_cart.order
     if @order.update_attributes(order_params)
+      @order.save
       redirect_to checkout_path, notice: "Profile updated"
     else
       redirect_to checkout_path

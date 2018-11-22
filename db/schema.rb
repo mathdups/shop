@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.datetime "updated_at", null: false
     t.integer "order_id"
     t.string "uuid"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
