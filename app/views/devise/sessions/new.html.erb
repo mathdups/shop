@@ -14,7 +14,7 @@
                 <div class="form-group">
                   <%= f.label :photo do %>
                   <%= f.label :photo %>
-                  <%= f.file_field :photo %>
+                  <%= f.file_field :photo, class: 'form-control'%>
                     <%= f.hidden_field :photo_cache %>
                   <% end %>
                 </div>
@@ -29,15 +29,13 @@
                 <div class="form-group">
                   <%= f.label :password_confirmation %>
                   <%= f.password_field :password_confirmation, class: 'form-control' %>
-                </div>
-                
+                </div>               
                 <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
               <% end %>
             </div>
           </div>
           <%= render 'devise/shared/links' %>
         </div>
-
     </div>
 
 
@@ -79,3 +77,8 @@
     </div>
   </div>
 </div>
+
+
+
+
+    

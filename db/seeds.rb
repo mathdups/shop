@@ -11,6 +11,7 @@ o = Category.create(title: "Weeds")
 
 
 
+
 puts 'Creating products...'
 Product.create(title: "ACDC", price: 13.55, short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin varius arcu, quis malesuada dolor.", photo: open("https://res.cloudinary.com/dkprc38da/image/upload/v1542565677/e22w75phaabyie1cwkwp.png"), category_id: 1)
 Product.create(title: "Blue Dream", price: 13.55, short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin varius arcu, quis malesuada dolor.", category_id: 1, photo: open("https://res.cloudinary.com/dkprc38da/image/upload/v1542568662/jozljnzj7shdf0qxxoc5.jpg"))
@@ -23,3 +24,4 @@ Product.create(title: "Kush", price: 13.55, short_description: "Lorem ipsum dolo
 Product.create(title: "NYDIESEL", price: 13.55, short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin varius arcu, quis malesuada dolor.", category_id: 1, photo: open("https://res.cloudinary.com/dkprc38da/image/upload/v1542568857/tqqfcqpewgzg3imijdrm.jpg"))
 
 
+AdminUser.create!(email: 'math.dups@gmail.com', password: '123456', password_confirmation: '123456') if Rails.env.development?

@@ -1,10 +1,11 @@
 /* Body/Header stuff */
 body {
-  margin-top: 70px;
+  margin-top: 80px;
   padding: 0;
   font-family: $font-default;
   font-weight: 100;
-  background: linear-gradient(to right, rgb(205, 243, 210), rgb(229, 247, 222));
+  // background: linear-gradient(to right, rgb(205, 243, 210), rgb(229, 247, 222));
+  background: white;
 }
 
 a {
@@ -23,8 +24,8 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: 32px;
-  text-shadow: -1px -1px $blue, 1px 1px #060, -3px 0 4px #000;
+  font-size: 35px;
+  text-shadow: -1px -1px $blue, 1px 1px $blue, -1px 0 3px $blue;
   color: $blue;
   padding:15px;
   font-weight:lighter;
@@ -255,7 +256,7 @@ img {
 }
 
 .card a {
-	color: black;
+	color: $blue;
 	text-decoration: none;
 }
 
@@ -274,7 +275,7 @@ img {
 }
 
 .card-content p {
-	font-size: 80%;
+	font-size: 100%;
 }
 
 .card .info-wrap {
@@ -344,6 +345,10 @@ transition: all 1s ease;
     padding:0;
     margin:0;
   }
+  
+  h1{
+    font-size:35px;
+  }
 
   body {
     padding:0;
@@ -363,6 +368,7 @@ transition: all 1s ease;
         flex-wrap: wrap;
         justify-content: space-between;
     }
+
 
     .card {
         flex: 0 1 calc(50% - 1em);
@@ -385,5 +391,144 @@ transition: all 1s ease;
   .card {
       flex: 0 1 calc(25% - 1em);
   }
+  .container {
+    width: 1400px;
+  }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.search-text{
+	margin-top:50px;
+	background-color: #272d33;
+	padding-top:60px;
+	padding-bottom:60px;
+}
+	
+.search-text .input-search{
+	height:45px;
+	width:40%;
+	padding-left:20px;
+    color:#333;
+} 
+
+.search-text .btn-search{
+    background: #da3e44;
+    font-family:Roboto;
+    border:none;
+	color:#FFF;
+	height: 45px;
+    width: 80px;
+}
+
+.search-text h4{
+    color: #FFF;
+    font-weight: 700;
+}
+
+footer{
+     background-color: #33383c;
+     padding:30px 0px;
+}	       
+
+.logo{
+    color:#FFF;
+    font-weight:700;
+    font-size:30px;
+}
+
+.address span , .menu span{
+   color: #FFF; 
+   font-weight: bold; 
+   border-bottom: 1px solid #c7c7c7; 
+   padding:10px 0px;
+   display: block;
+   text-transform: uppercase;
+   font-size: 16px;
+   letter-spacing: 3px;
+}
+ 
+.address li a , .menu li a{
+    color:#FFF;
+    letter-spacing: 3px;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.address li, .menu li{
+    margin:20px 0px;
+    list-style: none;
+}
+
+.address li a:hover , .menu li a:hover{
+    color: $green;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.address .fa{
+    color: $green;
+    margin-right: 10px;
+    font-size:18px;
+}
+
+.wrapper {
+  display: flex;
+  padding: 20px;
+  vertical-align: center;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+
+  .info-cbd {
+    display: flex;
+    justify-content: center;
+  }
+  
+
+  img {
+      border-radius: 3%;
+      max-height: 400px;
+  }
+
+  h4 {
+    text-shadow: 0 0px 1px rgba(0,0,0,0.6);
+    font-size: 20px;
+    
+  }
+  
+}
+
+
+
+.weedlife-logo {
+  width: 70px !important;
+  height: auto !important;
+
+}

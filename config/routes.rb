@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users
 
   
@@ -19,14 +21,14 @@ Rails.application.routes.draw do
   patch '/cart/checkout/', to: 'orders#update'
   
 
-  get '/admin/', to: 'categories#admin', as: :admin
+   get '/admin/', to: 'categories#admin', as: :admin
   resources :charges, only: [:new, :create]
 
   resources :purchases, only: [:show]
 
   get '/blabla/', to: 'categories#blabla'
 
-  resources :users, only: [:update]
+  patch '/users/', to: 'users#update'
 
   
   

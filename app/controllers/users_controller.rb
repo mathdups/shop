@@ -6,17 +6,6 @@ class UsersController < ApplicationController
     @items = OrderItem.all
   end
 
-  def show
-   
-  end
-
-  def new
-    
-  end
-
-  def create
-
-  end
 
   def edit
     @user = User.find(params[:id])
@@ -24,6 +13,12 @@ class UsersController < ApplicationController
   
   def update
     current_user.update(user_params)
+    if current_user.save
+      flash[:success] = "Merci pour ce bel update!"
+      redirect_to '/cart/checkout'
+    else
+      render 'new'
+    end
   end
 
   private
@@ -38,6 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def user_params
-    params.require(:user).permit(:photo, :first_name, :last_name, :address, :postal_code, :city, :country)
+    params.require(:user).permit(:username, :email, :password,
+      :password_confirmation, :remember_me, :photo, :photo_cache, :remove_photo, :first_name, :last_name, :phone, :address, :city, :country, :postal_code)
   end
 end

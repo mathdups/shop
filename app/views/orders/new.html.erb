@@ -17,43 +17,57 @@
       <button type="button" class="btn btn-primary" style="color: white"><%= link_to 'Modif Cart', cart_path %></button>
     </div>
     <div class="col-ld-12 col-md-6 col-sd-6 col-xs-6">
-      <h2>Infos personnelles </h2>
-      <%= bootstrap_devise_error_messages! %>
-      <div class="panel panel-default devise-bs">
+      <form class="form-horizontal" id="validateForm" action="/user/" method="post">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-4"> 
+            <div class="form-group">
+              <label class="control-label">Prénom:</label>
+              <input placeholder="Prénom" class="form-control"  type="text">
+            </div>
 
-        <%= simple_form_for current_user, method: "patch", path: "/cart/checkout/" do |f| %>
+            <div class="form-group">
+              <label class="control-label">Nom:</label>
+              <input  name="last_name" placeholder="Nom" class="form-control"  type="text">
+            </div>
+            
+            <div class="form-group">
+              <label class="control-label">Tel:</label>
+              <input name="phone" placeholder="Numéro de téléphone" class="form-control" type="text">
+            </div>
+            
+            <div class="form-group">
+              <label class="control-label">Address:</label>
+              <textarea class="form-control" name="address" placeholder="Address..."></textarea>
+            </div>
 
-              <%= f.label :first_name %>
-              <%= f.text_field :first_name, class: 'form-control' %>
+            <div class="form-group">
+              <label class="control-label">Zip:</label>
+              <input name="zip" placeholder="Zip Code" class="form-control" type="text">
+            </div>         
+          </div>
+          <div class="col-md-offset-1 col-md-4">
 
-              <%= f.label :last_name %>
-              <%= f.text_field :last_name, class: 'form-control' %>
+            
+          
+          
+          <div class="form-group">
+            <button type="submit" path="user_path" method="patch" action="update" class="btn btn-success" >Submit</button>
+            </div>
 
-              <%= f.label :address %>
-              <%= f.text_field :address, class: 'form-control' %>
+          
+		  
+	</div>
+</div>
+ 
+</form>
 
-              <%= f.label :city %>
-              <%= f.text_field :city, class: 'form-control' %>
 
-              <%= f.label :postal_code %>
-              <%= f.text_field :postal_code, class: 'form-control' %>
 
-              <%= f.label :country %>
-              <%= f.text_field :country, class: 'form-control' %>
 
-              <% if devise_mapping.rememberable? %>
-                    <div class="checkbox">
-                      <%= f.label :remember_me do %>
-                        <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Remember me') %>
-                      <% end %>
-                    </div>
-                  <% end %>
 
-              <%= f.submit "Update Profil", class: "btn btn-primary", path: 'checkout_patch' %>
-            <% end %>
+
       </div>
-    </div>
-  </div>
+
       <%= form_tag charges_path, id:'chargeForm' do %>
 
           <% if flash[:error].present? %>
@@ -67,6 +81,17 @@
         <button id="btn-buy" type="btn" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Buy this!</button>
   <% end%> 
 </div> 
+
+
+
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+
+
+
   <script >
     var handler = StripeCheckout.configure({
       key: '<%= Rails.configuration.stripe[:publishable_key] %>',
@@ -85,6 +110,106 @@
       });
       e.preventDefault();
     })
+
+
+
+
+
+
+$('#validateForm').bootstrapValidator({
+feedbackIcons: {
+	valid: 'glyphicon glyphicon-ok',
+	invalid: 'glyphicon glyphicon-remove',
+	validating: 'glyphicon glyphicon-refresh'
+},
+fields: {
+	first_name: {
+		validators: {
+			stringLength: {
+				min: 2,
+				message: 'Votre prénom doit contenir au moins deux caractères'
+			},
+			notEmpty: {
+				message: 'Svp, entrez votre nom complet'
+			}
+		}
+  },
+  last_name: {
+		validators: {
+			stringLength: {
+				min: 2,
+				message: 'Votre nom doit contenir au moins deux caractères'
+			},
+			notEmpty: {
+				message: 'Svp, entrez votre nom'
+			}
+		}
+	},
+	phone: {
+		validators: {
+			numeric: {
+				message: 'Le numéro de téléphone doit être un nombre'
+			},
+			notEmpty: {
+				message: 'Svp, entre votre numéro de téléphone'
+			}
+		}
+  },
+  zip: {
+		validators: {
+			numeric: {
+				message: 'Le zip doit être un nombre'
+			},
+			notEmpty: {
+				message: 'Svp, entre votre numéro de téléphone'
+			}
+		}
+	},
+	address: {
+		validators: {
+			stringLength: {
+				min: 15,
+				max: 100,
+				message:'Please enter at least 15 characters and no more than 100'
+			},
+			notEmpty: {
+				message: 'Please Enter Address'
+			}
+		}
+	},
+	email: {
+		validators: {
+			notEmpty: {
+				message: 'Please Enter your email address'
+			},
+			emailAddress: {
+				message: 'Please Enter a valid email address'
+			}
+		}
+	},
+	password: {
+		validators: {
+			notEmpty: {
+				message: 'Enter your profile password'
+			}
+		}
+	},
+	confirmPassword: {
+		validators: {
+			notEmpty: {
+				message: 'Enter confirm your profile password'
+			},
+			identical: {
+				field: 'password',
+				message: 'Enter the password, what enter in password field'
+			}
+		}
+	 },
+	}
+});
+
+
+
   </script>
 
  
