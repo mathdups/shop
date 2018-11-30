@@ -26,4 +26,3 @@ Product.create(title: "NYDIESEL", price: 16.55, short_description: "Lorem ipsum 
 Product.create(title: "Huile Magique", price: 27.30, short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin varius arcu, quis malesuada dolor.", category_id: 2, photo: open("https://res.cloudinary.com/dkprc38da/image/upload/v1543536595/-autre-huile.jpg"))
 Product.create(title: "Huile Complètement magique", price: 43.95, short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin varius arcu, quis malesuada dolor.", category_id: 2, photo: open("https://res.cloudinary.com/dkprc38da/image/upload/v1543536595/-autre-huile2.jpg"))
 
-AdminUser.create!(email: 'math.dups@gmail.com', password: '123456', password_confirmation: '123456') if Rails.env.development?
