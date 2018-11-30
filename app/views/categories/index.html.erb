@@ -13,7 +13,7 @@
           <h1> <i class="fas fa-cannabis"></i>
             Achat en ligne cannabis CBD Premium
             <i class="fas fa-cannabis"></i>
-            </h1> 
+          </h1> 
           <div class="row">
             <div class="col-md-6">
               <div class="wrapper">
@@ -29,20 +29,19 @@
                   <div class="info-cbd">
                     <button type="submit" class="btn btn-primary float-center"><%= link_to 'En savoir plus', checkout_path %></button>
                   </div>
-              </div>
-                
+                </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            
+
+          <div class="row">            
             <div class="col-sm-6 ">
               <div class="wrapper">
                 <div class="wrapper-text">
                   <h4> Bienvenue sur Weedlife.be, le spécialiste de la vente en ligne de produits CBD premium Suisses. </h4>
-                      <h4> Totalement légaux dans la plupart des pays Européens, nos produits CBD contiennent moins de 0.2% de THC, conformément à la législation. </h4>
-                       <h4> Pour les produits contenant plus de 0.2% de THC, nous attirons votre attention que ces derniers sont susceptibles d'être interdits à la vente et à la consommation dans votre pays, et vous invitons à consulter et respecter la législation en vigueur dans votre pays de résidence. </h4>
-                       <h4>Nous livrons dans toute l'Europe: France, Belgique, Italie... </h4>
+                  <h4> Totalement légaux dans la plupart des pays Européens, nos produits CBD contiennent moins de 0.2% de THC, conformément à la législation. </h4>
+                  <h4> Pour les produits contenant plus de 0.2% de THC, nous attirons votre attention que ces derniers sont susceptibles d'être interdits à la vente et à la consommation dans votre pays, et vous invitons à consulter et respecter la législation en vigueur dans votre pays de résidence. </h4>
+                  <h4>Nous livrons dans toute l'Europe: France, Belgique, Italie... </h4>
                 </div>               
               </div>
             </div>
@@ -52,33 +51,34 @@
               </div>
             </div>
           </div>
+        </div>
       </div>
 
- 
-  
-    <% @categories.each do |category| %>
-      <%= link_to category_path(category) do %>
-      <h1> <i class="fas fa-cannabis"></i>
-       <%= category.title %> 
-      <i class="fas fa-cannabis"></i>
-      </h1> 
-      <% end %> 
+      <% @categories.each do |category| %>
+        <%= link_to category_path(category) do %>
+          <h1> 
+            <i class="fas fa-cannabis"></i>
+            <%= category.title %> 
+            <i class="fas fa-cannabis"></i>
+          </h1> 
+        <% end %> 
         <section class="cards">
           <% Product.where(category_id: category.id).each do |product| %>                
             <article class="card">
               <picture class="img-wrap">
-                <%= cl_image_tag product.photo, crop: :fill %> 
+                  <%= cl_image_tag product.photo, crop: :fill %> 
               </picture>
               <div class="card-content">
                 <div class="info-wrap">
-                      <%= link_to category_product_path(category.id, product.id) do %>
-                          <h3><%= product.title %> <% end %> </h3> 
-                          <div class="desc">
-                              <p><%= product.short_description %>
-                            <%= link_to category_product_path(category.id, product.id) do %>
-                              <i class="far fa-arrow-alt-circle-right"></i></p> 
-                            <%end%>
-                          </div>
+                    <%= link_to category_product_path(category.id, product.id) do %>
+                      <h3><%= product.title %> <% end %> </h3> 
+                      <div class="desc">
+                          <p><%= product.short_description %>
+                        <%= link_to category_product_path(category.id, product.id) do %>
+                          <i class="far fa-arrow-alt-circle-right"></i></p> 
+                      </div>
+                    <%end%>
+              
                       <div class="price-wrap">
                         <span class="price-new"><%= number_to_currency product.price %></span>
                         <del class="price-old"><%=number_to_currency product.price * 1.02 %> </del> 
@@ -95,14 +95,13 @@
                     <div class="form-group"> 
                       <%= submit_tag "Add to Cart", class: "btn btn-primary" %>	
                     </div>
-                  </form>
-              
+                  </form>         
                 </div>            
-              </div><!-- .card-content -->              
-            </article><!-- .card -->
+              </div>            
+            </article>
           <%end%>
-        </section><!-- .cards -->
+        </section>
       <%end%>
-    </div><!-- .centered -->  
+    </div> 
   </main>
 </div>

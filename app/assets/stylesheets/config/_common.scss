@@ -47,7 +47,7 @@ ul, li {
 
   max-width: 100%;
   position: relative;
-  color: $light-gray;
+  color: $gray;
 }
 
 
@@ -87,9 +87,6 @@ label {
   color: $color-label;
 }
 
-.shopping-cart {
-  margin-top: -45px;
-}
 
 
 .card-container {
@@ -311,7 +308,7 @@ font-size: 25px;
 	height: auto;
 }
 .card .img-wrap img {
-  max-height: 100%;
+  max-height: 278.42px;
   max-width: 100%;
   object-fit: cover;
   /* La transition s'applique à la fois sur la largeur et la hauteur, avec une durée d'une seconde. */
@@ -533,3 +530,16 @@ footer{
   height: auto !important;
 
 }
+
+
+.panel-heading {
+  color: white !important;
+  background-color: $green !important;
+  border-color: $blue !important;
+
+  h4 {
+    color: white !important;
+    text-align: center !important;
+  }
+}
+

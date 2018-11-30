@@ -5,8 +5,8 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
 */
 
 /* Global settings */
-$color-border: #eee;
-$color-label: #aaa;
+$color-border: $green;
+$color-label: $gray;
 $font-default: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
 
@@ -73,6 +73,7 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
     text-align: center;
     img {
       width: 100px;
+      max-height: 77.07px;
     }
   }
   
@@ -82,7 +83,7 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
       font-family: $font-bold;
     }
     .product-description {
-      margin: 5px 20px 5px 0;
+      margin: 0px 20px 5px 0;
       line-height: 1.4em;
     }
   }
@@ -182,6 +183,7 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
   .product-price {
     clear: both;
     width: 70px;
+    color: $gray;
   }
   
   .product-quantity {
