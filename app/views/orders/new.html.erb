@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-      <h1> Paiement </h1>
+    <h1> Résumé de votre commande </h1>
     <div class="col-xs-12 col-sd-12 col-md-6 ">
-      <h2> Info commande en cours</h2>  
+    	<h2> Info commande en cours</h2>  
         <% current_cart.order.items.each do |item| %>
             <h3><%= item.product.category.title %> </h3>
             <h5>Name: <%= item.product.title %><h5>
@@ -17,56 +17,27 @@
       <button type="button" class="btn btn-primary" style="color: white"><%= link_to 'Modif Cart', cart_path %></button>
     </div>
     <div class="col-ld-12 col-md-6 col-sd-6 col-xs-6">
-      <form class="form-horizontal" id="validateForm" action="/user/" method="post">
-        <div class="row">
-          <div class="col-md-offset-1 col-md-4"> 
-            <div class="form-group">
-              <label class="control-label">Prénom:</label>
-              <input placeholder="Prénom" class="form-control"  type="text">
-            </div>
+      
+			<h2> Info Personnelles </h2>
+			
+				<p>Prénom:	<%= current_user.first_name %></p>
+				<p>Nom:   	<%= current_user.last_name %></p>
+				<p>Adresse: <%= current_user.address %></p>
+				<p>Ville:		<%= current_user.city %></p>
+				<p>Zip code:<%= current_user.postal_code %></p>
+				<p>Pays:    <%= current_user.country %></p>
 
-            <div class="form-group">
-              <label class="control-label">Nom:</label>
-              <input  name="last_name" placeholder="Nom" class="form-control"  type="text">
-            </div>
-            
-            <div class="form-group">
-              <label class="control-label">Tel:</label>
-              <input name="phone" placeholder="Numéro de téléphone" class="form-control" type="text">
-            </div>
-            
-            <div class="form-group">
-              <label class="control-label">Address:</label>
-              <textarea class="form-control" name="address" placeholder="Address..."></textarea>
-            </div>
+				<button type="button" class="btn btn-primary" style="color: white"><%= link_to 'Update', edit_user_registration_path %></button> 
+			
+			
 
-            <div class="form-group">
-              <label class="control-label">Zip:</label>
-              <input name="zip" placeholder="Zip Code" class="form-control" type="text">
-            </div>         
-          </div>
-          <div class="col-md-offset-1 col-md-4">
 
-            
-          
-          
-          <div class="form-group">
-            <button type="submit" path="user_path" method="patch" action="update" class="btn btn-success" >Submit</button>
-            </div>
 
-          
-		  
+
+
+
+    </div>
 	</div>
-</div>
- 
-</form>
-
-
-
-
-
-
-      </div>
 
       <%= form_tag charges_path, id:'chargeForm' do %>
 

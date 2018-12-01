@@ -47,12 +47,11 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'haml'
+gem 'figaro'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'elevatezoom-rails'
 gem 'jquery-rails'
-gem 'activeadmin', github: 'activeadmin'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'bootstrap-validator-rails'
 
 group :development, :test do

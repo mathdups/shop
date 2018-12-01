@@ -1,42 +1,62 @@
 <div class="container" >
   <div class="main-area">
-    <h1>Registration  /  Login</h1>                     
-            
-      <div class="row">
-        <div class="col-md-6">
-          <div class="registration-new"  >
-            <%= bootstrap_devise_error_messages! %>
-            <div class="panel panel-default devise-bs">
-              <div class="panel-heading">
-                <h4><%= t('.sign_in', default: 'Sign in') %></h4>
-              </div>
-              <div class="panel-body">
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
-                  <div class="form-group">
-                    <%= f.label :email %>
-                    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    <h1>Connexion</h1>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="registration-new">     
+          <%= bootstrap_devise_error_messages! %>
+          <div class="panel panel-default devise-bs">
+            <div class="panel-heading">
+              <h4>Connexion</h4>
+            </div>         
+            <div class="panel-body">                     
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => { role: 'form', class: 'form-horizontal'}) do |f| %>             
+                <div class="form-group">
+                    <%= f.label :email, class: 'col-md-4 control-label' %>
+                  <div class="col-md-6 inputGroupContainer">
+                    <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Email", name: "user[email]" %>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <%= f.label :password %>
-                    <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :password, class: 'col-md-4 control-label' %>
+                  <div class="col-md-6 inputGroupContainer">
+                    <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>            
+                      <%= f.password_field :password, class: 'form-control', placeholder: "Password", name: 'user[password]' %>
+                    </div>
                   </div>
-                  <% if devise_mapping.rememberable? %>
+                </div>
+                <div class="form-group">
+                 <% if devise_mapping.rememberable? %>
                     <div class="checkbox">
                       <%= f.label :remember_me do %>
-                        <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Remember me') %>
-                      <% end %>
+                      <div class="col-md-12 inputGroupContainer">
+                        <div class="input-group"> <span class="input-group-addon">
+                          <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Remember me') %>
+                          <% end %>
+                        </div>
+                      </div>
                     </div>
                   <% end %>
+                </div>
+                <div class="col-md-12 inputGroupContainer text-center">            
                   <%= f.submit  t('.sign_in', default: 'Sign in'), class: 'btn btn-primary' %>
-                <% end %>
-              </div>
-            </div>
-            <%= render 'devise/shared/links' %>
+                </div>
+                                          
+              <% end %>   
+              <%= render 'devise/shared/links' %>
+            </div>           
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> 
+
+
+
+
+
 
 

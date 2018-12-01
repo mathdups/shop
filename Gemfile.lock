@@ -1,30 +1,3 @@
-GIT
-  remote: https://github.com/activeadmin/activeadmin.git
-  revision: 9292dfb548b7779db962ab7992ea4b1342ea69d4
-  specs:
-    activeadmin (2.0.0.alpha)
-      arbre (>= 1.1.1)
-      formtastic (~> 3.1)
-      formtastic_i18n
-      inherited_resources (>= 1.7.0)
-      jquery-rails (>= 4.2.0)
-      kaminari (>= 1.0.1)
-      railties (>= 5.0, < 5.3)
-      ransack (>= 1.8.7)
-      sass (~> 3.4)
-      sprockets (>= 3.0, < 4.1)
-      sprockets-es6 (>= 0.9.2)
-
-GIT
-  remote: https://github.com/activeadmin/inherited_resources.git
-  revision: db6eb312b7cac6baf0023f720cf6785a9849fa85
-  specs:
-    inherited_resources (1.9.0)
-      actionpack (>= 5.0, < 5.3)
-      has_scope (~> 0.6)
-      railties (>= 5.0, < 5.3)
-      responders
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -65,16 +38,10 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    arbre (1.1.1)
-      activesupport (>= 3.0.0)
     arel (8.0.0)
     autoprefixer-rails (9.3.1)
       execjs
     aws_cf_signer (0.1.3)
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
     bcrypt (3.1.12)
     bcrypt (3.1.12-java)
     bcrypt (3.1.12-x64-mingw32)
@@ -152,19 +119,15 @@ GEM
     ffi (1.9.25-java)
     ffi (1.9.25-x64-mingw32)
     ffi (1.9.25-x86-mingw32)
+    figaro (1.1.1)
+      thor (~> 0.14)
     font-awesome-sass (5.5.0.1)
       sassc (>= 1.11)
-    formtastic (3.1.5)
-      actionpack (>= 3.2.13)
-    formtastic_i18n (0.6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
-    has_scope (0.7.2)
-      actionpack (>= 4.1)
-      activesupport (>= 4.1)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.1.1)
@@ -176,18 +139,6 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    kaminari (1.1.1)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.1.1)
-      kaminari-activerecord (= 1.1.1)
-      kaminari-core (= 1.1.1)
-    kaminari-actionview (1.1.1)
-      actionview
-      kaminari-core (= 1.1.1)
-    kaminari-activerecord (1.1.1)
-      activerecord
-      kaminari-core (= 1.1.1)
-    kaminari-core (1.1.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -270,11 +221,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (12.3.1)
-    ransack (2.1.0)
-      actionpack (>= 5.0)
-      activerecord (>= 5.0)
-      activesupport (>= 5.0)
-      i18n
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -324,10 +270,6 @@ GEM
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-es6 (0.9.2)
-      babel-source (>= 5.8.11)
-      babel-transpiler
-      sprockets (>= 3.0.0)
     sprockets-rails (3.2.1)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
@@ -379,7 +321,6 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
-  activeadmin!
   autoprefixer-rails
   bootsnap (>= 1.1.0)
   bootstrap-sass (~> 3.3)
@@ -395,9 +336,9 @@ DEPENDENCIES
   dotenv-rails
   elevatezoom-rails
   faker (~> 1.8.5)
+  figaro
   font-awesome-sass (~> 5.5)
   haml
-  inherited_resources!
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
