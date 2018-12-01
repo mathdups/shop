@@ -8,8 +8,12 @@
   color: white;
 }
 .alert-info {
-  background: $green;
+ 
+  color: rgb(60, 118, 61);
+  background-color: rgb(223, 240, 216);
+  border-color: rgb(60, 118, 61);
 }
 .alert-warning {
   background: $red;
 }
+

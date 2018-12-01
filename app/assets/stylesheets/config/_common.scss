@@ -24,14 +24,16 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: 35px;
-  text-shadow: -1px -1px $blue, 1px 1px $blue, -1px 0 3px $blue;
+  font-size: 40px;
   color: $blue;
   padding:15px;
   font-weight:lighter;
   text-align:center;
   display:block;
   text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px solid;
+
 }
 
 ul, li {
