@@ -28,13 +28,13 @@ h1 {
   color: $blue;
   padding:15px;
   font-weight:lighter;
-  text-align:center;
   display:block;
   text-decoration: none;
   font-weight: bold;
   border-bottom: 2px solid;
-
+  border-top: 2px solid;
 }
+
 
 ul, li {
   list-style-type:none;
