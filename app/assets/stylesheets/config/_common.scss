@@ -1,6 +1,6 @@
 /* Body/Header stuff */
 body {
-  margin-top: 80px;
+  margin-top: 70px;
   padding: 0;
   font-family: $font-default;
   font-weight: 100;
@@ -24,13 +24,13 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: 40px;
-  color: $blue;
+  font-size: 30px;
+  color: $green;
   padding:15px;
-  font-weight:lighter;
+  font-weight:bold;
   display:block;
   text-decoration: none;
-  font-weight: bold;
+
   border-bottom: 2px solid;
   border-top: 2px solid;
 }
@@ -256,7 +256,7 @@ img {
 }
 
 .card a {
-	color: $blue;
+	color: $green;
 	text-decoration: none;
 }
 
