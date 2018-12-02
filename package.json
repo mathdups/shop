@@ -12,23 +12,23 @@
     "compass": "^0.1.1",
     "devise": "^1.0.9",
     "hooks": "^0.3.2",
+    "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.3.1",
     "jquery-min": "^0.0.2",
     "jquery-ujs": "^1.2.2",
+    "karma-webpack": "^4.0.0-beta.0",
     "lint": "^1.1.2",
+    "mini-css-extract-plugin": "^0.4.5",
     "node": "^11.2.0",
     "poper": "^0.1.1",
     "popper": "^1.0.1",
     "sass": "^1.14.3",
     "spring": "^0.0.0",
     "tapable": "^1.1.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "uglifyjs-webpack-plugin": "^2.0.1"
+   
   },
   "devDependencies": {
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "karma-webpack": "^4.0.0-rc.5",
-    "mini-css-extract-plugin": "^0.4.5",
-    "webpack": "^4.26.1"
+    "webpack-rails": "^1.0.5"
   }
 }
