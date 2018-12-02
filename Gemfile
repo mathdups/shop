@@ -40,7 +40,7 @@ gem 'font-awesome-sass', '~> 5.5'
 gem 'webpacker'
 gem 'autoprefixer-rails'
 gem 'pundit'
-gem 'cloudinary'
+gem 'cloudinary', '~>1.9.1'
 gem 'stripe'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails', groups: [:development, :test]
