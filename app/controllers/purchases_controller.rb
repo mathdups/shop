@@ -8,7 +8,9 @@ class PurchasesController < ApplicationController
 
 
 
-private
+
+
+  private
 
  
 end

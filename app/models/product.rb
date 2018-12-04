@@ -4,6 +4,10 @@ class Product < ApplicationRecord
   belongs_to :category
 
   has_many :product_categories
+  validates :title, uniqueness: true, presence: true
+  validates :price, presence: true
+  validates :short_description, presence: true
+  validates :description, presence: true
   
 
   has_many :variants, class_name: 'ProductVariant'

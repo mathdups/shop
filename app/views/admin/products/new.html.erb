@@ -1,0 +1,11 @@
+<%= simple_form_for @product, url: "/admin/products", method: "post" do |f| %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :short_description %>
+  <%= f.input :price %>
+  <%= f.input :category_id, label: "Catégorie associée", collection: Category.all, include_blank: false %>
+  <%= f.submit "save product" %>
+<% end %>
+

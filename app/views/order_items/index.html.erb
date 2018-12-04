@@ -59,7 +59,7 @@
       </div>
       
         
-         <button type="submit" class="btn btn-primary float-right"><%= link_to 'Checkout', checkout_path %></button>         
+         <%= link_to 'Checkout', checkout_path, class: "btn btn-primary float-right" %>       
           <%= form_tag charges_path do %>
           <article>
             <% if flash[:error].present? %>

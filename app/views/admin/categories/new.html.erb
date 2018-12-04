@@ -1,0 +1,6 @@
+
+    <%= simple_form_for @category, url: "/admin/categories", method: "post"  do |f| %>
+      <%= f.input :title %>
+      
+      <%= f.submit "sauvegarde catégorie" %>
+    <% end %>

@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   root to: 'categories#index'
 
-  resources :categories, only: [:index, :new, :create, :show, :update, :edit, :destroy] do
-    resources :products, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :categories, only: [:index, :show] do
+    resources :products, only: [:show]
   end
 
   get '/cart', to: 'order_items#index'
@@ -28,12 +28,9 @@ Rails.application.routes.draw do
 
   patch '/users/', to: 'users#update'
 
-  
-  
-
-  
-  
-
- 
-
+  namespace :admin do
+    resources :users, only: [:index]
+    resources :products, only: [:new, :create, :edit, :update, :destroy]
+    resources :categories, only: [:index, :new, :edit, :create, :update ]
+  end
 end

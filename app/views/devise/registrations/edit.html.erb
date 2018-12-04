@@ -12,10 +12,11 @@
                 <div class="form-group">
                   <%= f.label :photo do %>
                     <%= f.label :photo, class: 'col-md-4 control-label' %>
+                    <%= cl_image_tag current_user.photo, crop: :fill, id: "img-prev", alt: "your image"%>  
                     <div class="col-md-8  inputGroupContainer">
                       <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
                         <%= f.file_field :photo, class: 'form-control'%>
-                        <%= f.hidden_field :photo_cache %>
+                        <%= f.hidden_field :photo_cache, onchange: "readURL(this)" %>
                       </div>
                     </div>
                   <% end %>
@@ -129,6 +130,21 @@
  
         <script src="js/index.js"></script>
 <script type="text/javascript">
+
+function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#img_prev')
+              .attr('src', e.target.result)
+              .width(150)
+              .height(200);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
  
    $(document).ready(function() {
     $('#reg_form').bootstrapValidator({

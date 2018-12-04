@@ -27,6 +27,7 @@ class ShoppingCart
   def price_total
     price_total = tva + shipping_cost + order.sub_total
   end
+  
   def price_stripe
   price_stripe = price_total.to_i * 100
   end

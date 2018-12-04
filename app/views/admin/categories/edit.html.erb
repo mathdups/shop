@@ -1,0 +1,6 @@
+   <%= simple_form_for :category, path: "admin_category_path", url: {action: "update"}, :method => :PATCH do |f| %>
+      <%= f.input :title, class: 'form-control' %>
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+

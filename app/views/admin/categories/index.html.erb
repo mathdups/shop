@@ -1,0 +1,27 @@
+
+<div class="container">
+  <h1>Tableau de bord (Produits/Catégories)</h1>
+  <%= link_to "Add Category ", new_admin_category_path, class: "btn btn-primary" %>
+  <%= link_to "Add Product", new_admin_product_path, class: "btn btn-primary", method: "get" %>
+  <ul>
+    <% @categories.each do |category| %>
+      <li>
+        <%= link_to category_path(category) do %>
+          <h3> <strong><%= category.title %> </strong><%= link_to "Edit", edit_admin_category_path(category), class: "btn btn-primary" %>  </h3>      
+          <%# link_to "Delete", admin_category_path(category), class: "btn btn-danger", method: "delete",
+        data: { confirm: "Etes vous sur de vouloir supprimer : #{category.title}?" } %>
+        <% end %>    
+      </li>
+        <% @products.where(category_id: category.id).each do |product| %>
+            <br>
+            <li><%= link_to category_product_path(category, product.id) do %> 
+                  <%= product.title %>
+                <% end %> 
+                <%= link_to "Edit", edit_admin_product_path(product.id), class: "btn btn-primary" %>
+                <%= link_to "Delete", admin_product_path(product.id), class: "btn btn-danger", method: "delete",
+                  data: { confirm: "Etes vous sûr de vouloir supprimer: #{product.title}?" } %>             
+            </li>
+        <% end %>    
+    <% end %>
+  </ul>
+</div>
