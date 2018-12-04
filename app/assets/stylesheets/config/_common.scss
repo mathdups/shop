@@ -1,6 +1,6 @@
 /* Body/Header stuff */
 
-
+html, body {width:100%; overflow-x:hidden;}
 body {
   margin-top: 70px;
   padding: 0;
@@ -76,6 +76,7 @@ ul, li {
   font-weight: bold;
   color: white;
   text-shadow: 0.1em 0.1em 0.05em rgba(0,0,0,0.6);
+  border: 0px;
 }
 .banner p {
   font-size: 25px;
@@ -360,7 +361,7 @@ transition: all 1s ease;
     padding:0;
   }
   .container {
-    padding:0px;
+    padding: 0 !important;
     margin:0;
   }
   
@@ -381,9 +382,8 @@ transition: all 1s ease;
 
 
   .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom:0;
+    
+    margin: 0;
   }
 
   .card {
