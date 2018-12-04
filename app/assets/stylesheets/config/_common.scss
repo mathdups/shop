@@ -1,4 +1,6 @@
 /* Body/Header stuff */
+
+
 body {
   margin-top: 70px;
   padding: 0;
@@ -248,7 +250,7 @@ img {
 
 
   h3 {
-    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.6);
   }
   p {
     text-shadow: 0 1px 1px rgba(0,0,0,0.6);
@@ -285,7 +287,7 @@ img {
 }
 
 .card .bottom-wrap {
-  padding: 15px 15px 0px 15px;
+  padding: 15px 15px 0px 20%;
   border-top: 1px solid #eee;
 }
 
@@ -339,9 +341,21 @@ transition: all 1s ease;
   padding-bottom: 10px;
 }
 
+
+
 /* Phones */
 @media only screen and (max-width: 450px)  {
 
+  .row.reorder-xs {
+    transform: rotate(180deg);
+    direction: rtl; /* Fix the horizontal alignment */
+  }
+  
+  .row.reorder-xs > [class*="col-"] {
+    transform: rotate(-180deg);
+    direction: ltr; /* Fix the horizontal alignment */
+  }
+  
   body {
     padding:0;
   }
@@ -351,12 +365,17 @@ transition: all 1s ease;
   }
   
   h1{
-    font-size:30px;
+    font-size: 30px;
     text-align: center;
+  
   }
 
   .card-content p {
     font-size: 20px;
+  }
+
+  .banner {
+    height: 45vh;
   }
 
 
@@ -371,6 +390,10 @@ transition: all 1s ease;
     flex: 0 1 calc(50% - 1em);
     margin-right: 0px !important;
   }
+  .form-inline {
+    display: flex;
+  }
+  
 }
 
 // ipad
@@ -384,12 +407,14 @@ transition: all 1s ease;
         margin-right: 15px !important;
     }
   
-    
+    .form-inline {
+      display: flex;
+    }
 
 }
 
 // ipad pro et petits screen pc
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 992px) {
 
   .card {
       flex: 0 1 calc(33% - 1em);
@@ -397,7 +422,7 @@ transition: all 1s ease;
   }
 }
 // grand screen pc
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1400px) {
 
   .card {
       flex: 0 1 calc(25% - 1em);
