@@ -23,10 +23,10 @@
     "poper": "^0.1.1",
     "popper": "^1.0.1",
     "sass": "^1.14.3",
+    "scripts": "^0.1.0",
     "spring": "^0.0.0",
     "tapable": "^1.1.1",
     "uglifyjs-webpack-plugin": "^2.0.1"
-   
   },
   "devDependencies": {
     "webpack-rails": "^1.0.5"
