@@ -64,7 +64,7 @@ config.webpacker.check_yarn_integrity = false
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "shopper_#{Rails.env}"
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'obscure-castle-96967.herokuapp.com' }
 
   ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.perform_deliveries = true
