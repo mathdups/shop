@@ -1,8 +1,11 @@
 
 puts 'Creating users...'
-newuser = User.create!([
+u = newuser = User.new(
   {first_name: "Mathieu", last_name: "Duprez", email: "math.dups@gmail.com", password: "123456", password_confirmation: "123456", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: true}
-])
+)
+u.skip_confirmation!
+u.save!
+
 
 puts 'Creating categories...'
 o = Category.create(title: "Herbe thérapeuthique supérieure à 0.2% THC")

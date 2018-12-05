@@ -72,6 +72,9 @@ config.webpacker.check_yarn_integrity = false
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
 
+
+  
+
   
 
   # Ignore bad email addresses and do not raise email delivery errors.
