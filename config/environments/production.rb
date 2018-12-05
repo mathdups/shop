@@ -64,16 +64,13 @@ config.webpacker.check_yarn_integrity = false
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "shopper_#{Rails.env}"
 
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    :address  =>   'smtp.sendgrid.net',
-    :port     =>   '587',
-    :authentication =>  :plain,
-    :user_name  =>  ENV["SENDMAIL_USERNAME"],
-    :password => ENV["SENDMAIL_PASSWORD"],
-    :domain  => 'heroku.com',
-    :enable_starttls_auto  =>  true
-  }
+  
+
+  Rails.application.routes.default_url_options[:host] = 'obscure-castle-96967.herokuapp.com'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
 
   
 
