@@ -10,14 +10,15 @@
       <h2> Info Commandes Client </h2>
       <% @orders.each do |order| %>
         date création:<%= order.created_at %>
-        <li><% order.items.each do |item| %>
           <% @purchases.where(order_id: order.id, user_id: user.id).each do |purchase| %>
           <li> Date du paiement: <%= purchase.created_at %> </li>
           <li>Prix Final Stripe: <%= purchase.amount %></li>
         <% end %>
+        <li><% order.items.each do |item| %><li> 
          <li>Nom du produit: <%= item.product.title %></li>
          <li> Prix du produit: <%= item.product.price %></li>
          <li> Quantité de produit: <%= item.quantity %> </li>
+         
          
          
         <% end %>
