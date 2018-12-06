@@ -20,6 +20,7 @@
 //= require popper
 //= require bootstrap
 //= require plusminus
+//= require bootstrap-switch
 //= require_tree .
 
 

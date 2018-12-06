@@ -1,0 +1,40 @@
+
+
+
+<div class="container">
+    <h1>Tableau des bons de commandes</h1>
+    <% @purchases.order("created_at DESC").each do |purchase| %>
+    <h2>Commande n°<%= purchase.id %></h2>
+  <div class="row">
+      <div class="col-md-6">
+          <% @orders.where(id: purchase.order_id).each do |order| %>     
+            
+        <h3> <strong>Information Commande:</strong> </h3>
+        <h4> La commande a-t-elle été envoyée ? </h4>
+            <li> Date de l'achat: <%= purchase.created_at %> </li>
+            <li>Montant de l'achat: <%=  purchase.amount %>€ </li>
+            <li> Status de la commande: <%= order.status %></li>
+            <h4> Détails de la commande: </h4>
+            <% order.items.each do |item| %><li> 
+              <li>Nom du produit: <%= item.product.title %></li>
+              <li> Prix du produit: <%= item.product.price %></li>
+              <li> Quantité de produit: <%= item.quantity %> </li>
+              <br>         
+          <% end %>
+        <% end %>
+      </div> 
+      <div class="col-md-6">
+        <% @users.where(id: purchase.user_id).each do |user| %>
+          <h3> <strong>Infos de livraison:</strong> </h3>
+          <li>Email:<%= user.email %></li>
+          <li>Prénom:<%= user.first_name %> </li>
+          <li>Nom:<%= user.last_name %> </li>
+          <li>Address: <%= user.address %> </li>
+          <li>Code Postal: <%= user.postal_code %> </li>
+          <li>City: <%= user.city %> </li>
+          <li>Country: <%= user.country %> </li>
+        <% end %>    
+      </div>               
+  </div>
+    <% end %>
+</div>

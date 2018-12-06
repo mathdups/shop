@@ -67,6 +67,7 @@
     handler.open({
       user: "Blabla",
       description: "Buy this item for 4.99$",
+      status: '<%= current_cart.order.status %>',
       amount: document.getElementById("amount").value
       });
       e.preventDefault();

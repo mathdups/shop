@@ -35,6 +35,16 @@ h1 {
   border-top: 2px solid;
 }
 
+h2 {
+  font-size: 25px;
+  color: $blue;
+  padding:5px;
+  font-weight:bold;
+  display:block;
+  text-decoration: none;
+
+}
+
 
 ul, li {
   list-style-type:none;
@@ -580,4 +590,14 @@ footer{
     text-align: center !important;
   }
 }
+
+
+.btn-default.btn-on.active{background-color: #5BB75B;color: white;}
+.btn-default.btn-off.active{background-color: #DA4F49;color: white;}
+
+
+
+
+
+
 

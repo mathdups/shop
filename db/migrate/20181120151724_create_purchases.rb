@@ -10,8 +10,6 @@ class CreatePurchases < ActiveRecord::Migration[5.1]
       t.integer :order_id
       t.integer :product_id
 
-
-
       t.timestamps
     end
   end

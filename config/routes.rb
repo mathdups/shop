@@ -19,19 +19,16 @@ Rails.application.routes.draw do
   post '/cart/checkout', to: 'orders#create'
   patch '/cart/checkout/', to: 'orders#update'
   
-
-   get '/admin/', to: 'categories#admin', as: :admin
   resources :charges, only: [:new, :create]
 
-  resources :purchases, only: [:show]
+  resources :purchases, only: [:show, :update]
 
-  get '/blabla/', to: 'categories#blabla'
-
-  patch '/users/', to: 'users#update'
 
   namespace :admin do
-    resources :users, only: [:index]
+    resources :users, only: [:index, :update, :destroy, :edit]
     resources :products, only: [:new, :create, :edit, :update, :destroy]
     resources :categories, only: [:index, :new, :edit, :create, :update ]
+    resources :purchases, only: [:index, :update]
+    get '/user/:id/purchases/', to: 'users#purchases', as: :client
   end
 end

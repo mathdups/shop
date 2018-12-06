@@ -63,7 +63,7 @@
           </h1> 
         <% end %> 
         <section class="cards">
-          <% Product.where(category_id: category.id).each do |product| %>                
+          <% category.products.each do |product| %>                
             <article class="card">
               <picture class="img-wrap">
                   <%= cl_image_tag product.photo, crop: :fill %> 

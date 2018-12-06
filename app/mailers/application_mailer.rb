@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'obscure-castle-96967.herokuapp.com'
+  default from: 'from@example.com'
   layout 'mailer'
 end

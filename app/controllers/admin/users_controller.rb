@@ -2,13 +2,35 @@ class Admin::UsersController < ApplicationController
   before_action :authorized?
 
   def index 
-    @users = User.all
-    @orders = Order.where(status: "open")
-    @items = OrderItem.all
-    @purchases = Purchase.all
-    
+    @users = User.all.order("email ASC")
+  end
+
+  def edit 
+    @user = User.find(params[:id])
+  end
+
+  def update 
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      @user.save
+      redirect_to admin_users_path, notice: "Utilisateur mis à jour"
+    else
+      redirect_to root_path
+    end
   end
   
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "Utilisateur correctement supprimé"
+    redirect_to admin_users_path
+  end
+
+  def purchases
+   @user = User.find(params[:id])
+   @purchases = @user.purchases.order("created_at ASC")
+   @orders = Order.where(status: "open")
+  end
 
   private
 
@@ -22,6 +44,5 @@ class Admin::UsersController < ApplicationController
       flash[:alert] = "Vous n'êtes pas autorisé à voir cette page."
       redirect_to root_path
     end
-  end
-  
+  end 
 end
