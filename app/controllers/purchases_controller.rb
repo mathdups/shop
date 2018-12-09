@@ -4,6 +4,8 @@ class PurchasesController < ApplicationController
     @order = Order.where(user_id: current_user.id).last(2).first
   end
 
+  
+
   private
 
  

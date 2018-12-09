@@ -8,14 +8,18 @@ class Admin::PurchasesController < ApplicationController
   end
 
   def update
-    @purchase = purchase.find(params[:id])
-    if @purchase.update_attributes(purchase_params)
-      @purchase.save
-      redirect_to purchases_path, notice: "Status mis à jour"
-    else
-      redirect_to root_path
-    end
+    
+    @purchase = Purchase.find(params[:id])
+    status = !@purchase.is_sent
+    @purchase.is_sent = status
+    @purchase.save
+    redirect_to admin_purchases_path
+
   end
+    
+
+    
+
 
   private
 

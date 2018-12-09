@@ -1,0 +1,8 @@
+$('#purchase').html("");
+<% if @purchase.valid? %>
+  $("#toggle1").html("<%= @purchase.is_sent %>");
+<% else %>
+  <% @product.errors.full_messages.each do |message| %>
+    $('#error_explanation').append("<li> <%= escape_javascript(message) %> </li>");
+  <% end %>
+<% end %>

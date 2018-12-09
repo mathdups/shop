@@ -74,8 +74,10 @@ footer{
 }
 
 .logo-footer {
+    display: flex;
+    justify-content: center;
     img {
-        width: 65%;
+        width: 60%;
         height: auto;
         max-height: 230px;
     }

@@ -18,9 +18,7 @@
 
         <!-- Links when logged in -->
           <% if current_user.admin? %>
-            <%= link_to "Admin-Produits", admin_categories_path, class:"navbar-shop-item navbar-shop-link" %> 
-            <%= link_to "Admin-Users", admin_users_path, class:"navbar-shop-item navbar-shop-link" %>
-            <%= link_to "Admin-Purchases", admin_purchases_path, class:"navbar-shop-item navbar-shop-link" %>
+            <%= link_to "Admin", admin_dashboard_path, class:"navbar-shop-item navbar-shop-link" %> 
         <% end %>
         <%= link_to "Home", root_path, class:"navbar-shop-item navbar-shop-link " %>
         <%= link_to order_items_path, class:"navbar-shop-item1 navbar-shop-link1" do %>  

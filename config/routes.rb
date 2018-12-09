@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, :controllers => { registrations: 'registrations', confirmations: 'confirmations' }
 
 
@@ -21,14 +22,14 @@ Rails.application.routes.draw do
   
   resources :charges, only: [:new, :create]
 
-  resources :purchases, only: [:show, :update]
-
+  resources :purchases, only: [:show]
 
   namespace :admin do
+    get '/user/:id/purchases/', to: 'users#purchases', as: :client
     resources :users, only: [:index, :update, :destroy, :edit]
     resources :products, only: [:new, :create, :edit, :update, :destroy]
     resources :categories, only: [:index, :new, :edit, :create, :update ]
-    resources :purchases, only: [:index, :update]
-    get '/user/:id/purchases/', to: 'users#purchases', as: :client
-  end
+    resources :purchases, only: [:index, :update] 
+    get '/', to: 'users#admin', as: :dashboard
+   end
 end

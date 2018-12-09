@@ -1,10 +1,14 @@
-<div class="wrapper">
-    <div class="product-img">
-      <%= cl_image_tag @product.photo, height: 420, width: 327, crop: :fill %>
+<div class="container">
+  <div class="row">
+    <h1><%= @product.title %> </h1>
+    <div class="col-md-6">
+      <div class="product-img">
+        <%= cl_image_tag @product.photo, crop: :fill %>
+      </div>
     </div>
-    <div class="product-info">
+    <div class="col-md-6">
+      <div class="product-info">
       <div class="product-text">
-        <h1><%= @product.title %> </h1>
         <h2><%= @product.short_description %></h2>
         <p><%=@product.description%></p>
       </div>
@@ -15,6 +19,16 @@
             <%= hidden_field_tag :user_id, current_user.id %>
             <%= number_field_tag :quantity, 1 %>
             <%= submit_tag "Add to Cart" %>  
+            <% end %>
+   
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
             <%
 =begin %>
       <ul>
@@ -24,11 +38,8 @@
       </ul> >
       <%
 =end %>
-          <% end %>
+          
    
-      </div>
-    </div>
-  </div>
-
+    
 
  

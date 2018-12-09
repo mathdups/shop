@@ -17,6 +17,15 @@
       <% @purchases.each do |purchase| %>
           <h3> <strong>Information Commande:</strong> </h3>
           <h4> La commande a-t-elle été envoyée ? </h4>
+
+          <%= form_for purchase do |f| %>
+<%= f.check_box :is_sent, 'data-toggle' => 'toggle', id: "toggle",
+      data: {
+        remote: true,
+        url: url_for(action: :update, controller: :purchases, id: purchase.id),
+        method: "PATCH"
+      }  %>
+<% end %>
           <% @orders.where(id: purchase.order_id).each do |order| %>         
             <li> Date de l'achat: <%= purchase.created_at %> </li>
             <li>Montant de l'achat: <%=  purchase.amount %>€ </li>
@@ -34,6 +43,10 @@
   </div>
 </div>
 
+
 <script>
-jQuery('#kv-toggle-demo').bootstrapToggle();
+$(function() {
+    $('#toggle').bootstrapToggle('toggle');
+  })
+
 </script>
