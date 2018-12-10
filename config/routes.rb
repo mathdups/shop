@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /fr|en/ do
+  scope "(:locale)", locale: /fr|en|nl/ do
 
     root to: 'categories#index'
     devise_for :users, :controllers => { registrations: 'registrations', confirmations: 'confirmations' }

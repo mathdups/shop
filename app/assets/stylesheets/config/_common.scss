@@ -10,8 +10,9 @@ body {
   background: white;
 }
 
-a {
+a, li {
   text-decoration: none !important;
+  
 }
 
 
@@ -599,8 +600,10 @@ footer{
 .btn-default.btn-off.active{background-color: #DA4F49;color: white;}
 
 
-
-
+.flag-uk .flag-france {
+  width: 10px;
+  height: 10px;
+}
 
 
 
