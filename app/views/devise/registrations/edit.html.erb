@@ -8,11 +8,10 @@
           <div class="panel panel-default devise-bs">         
             <div class="panel-body">                     
               <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { role: 'form', multipart: :true, class: 'form-horizontal', id: "reg_form", method: "put" }) do |f| %>             
-                <h3>Infos Personnelles: </h3>
                 <div class="form-group">
-                  <%= f.label :photo do %>
-                    <%= f.label :photo, class: 'col-md-4 control-label' %>
-                    <%= cl_image_tag current_user.photo, crop: :fill, id: "img-prev", alt: "your image"%>  
+                  <%= f.label :photo, class: 'col-md-12 control-label float-right' do %>
+                    
+                    <%= cl_image_tag current_user.photo, crop: :fill, id: "img-prev"%>  
                     <div class="col-md-8  inputGroupContainer">
                       <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
                         <%= f.file_field :photo, class: 'form-control'%>

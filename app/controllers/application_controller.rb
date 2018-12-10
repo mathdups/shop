@@ -2,6 +2,7 @@ require "application_responder"
 
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
+  before_action :set_locale
   respond_to :html
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :current_cart
@@ -34,6 +35,14 @@ class ApplicationController < ActionController::Base
 
 
   private
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options(options = {})
+    { locale: I18n.locale }.merge options
+  end
 
   def cart_token
     return @cart_token unless @cart_token.nil?
