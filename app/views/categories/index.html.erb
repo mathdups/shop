@@ -70,8 +70,10 @@
               </picture>
               <div class="card-content">
                 <div class="info-wrap">
+                  <div class="info-wrap-product">
                     <%= link_to category_product_path(category.id, product.id) do %>
-                      <h3><%= product.title %> <% end %> </h3> 
+                      <h3><%= product.title %> <% end %> </h3>
+                  </div>
                       <div class="desc">
                           <p><%= product.short_description %>
                         <%= link_to category_product_path(category.id, product.id) do %>

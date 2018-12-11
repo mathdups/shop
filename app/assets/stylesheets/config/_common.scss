@@ -69,7 +69,7 @@ ul, li {
 
 .banner {
   text-align: center;
-  height: 40vh;
+  height: 45vh;
   width: 100%;
   background-size: cover !important;
   display: flex;
@@ -301,6 +301,16 @@ img {
   border-bottom: 1px solid #eee;
 }
 
+.card .info-wrap-product {
+
+}
+
+.product-text p {
+  padding-right: 5px;
+  padding-left: 5px;
+  text-align: justify;
+}
+
 .card .bottom-wrap {
   padding: 15px 15px 0px 20%;
   border-top: 1px solid #eee;
@@ -361,6 +371,15 @@ transition: all 1s ease;
 /* Phones */
 @media only screen and (max-width: 450px)  {
 
+  .menu li a, .address li{
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .banner {
+    height: 50vh !important;
+  }
   .row.reorder-xs {
     transform: rotate(180deg);
     direction: rtl; /* Fix the horizontal alignment */
@@ -600,10 +619,9 @@ footer{
 .btn-default.btn-off.active{background-color: #DA4F49;color: white;}
 
 
-.flag-uk .flag-france {
-  width: 10px;
-  height: 10px;
-}
+
+
+
 
 
 
