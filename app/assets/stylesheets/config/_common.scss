@@ -389,6 +389,7 @@ transition: all 1s ease;
     transform: rotate(-180deg);
     direction: ltr; /* Fix the horizontal alignment */
   }
+
   
   body {
     padding:0;
@@ -569,9 +570,8 @@ footer{
 
 .wrapper {
   display: flex;
-  padding: 20px;
   vertical-align: center;
-  min-height: 420px;
+  min-height: 350px;
   display: flex;
   align-items: center;
 

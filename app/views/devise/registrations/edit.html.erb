@@ -11,7 +11,7 @@
                 <div class="form-group">
                   <%= f.label :photo, class: 'col-md-12 control-label float-right' do %>
                     
-                    <%= cl_image_tag current_user.photo, crop: :fill, id: "img-prev"%>  
+                    <%= cl_image_tag(current_user.photo), radius: 50%>  
                     <div class="col-md-8  inputGroupContainer">
                       <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
                         <%= f.file_field :photo, class: 'form-control'%>
@@ -105,9 +105,8 @@
               <% end %> 
                 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>  
+  <p><%= t('.unhappy') %> <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+<%= link_to t('devise.shared.links.back'), :back %> 
             </div>           
           </div>
           <%= render 'devise/shared/links' %>
