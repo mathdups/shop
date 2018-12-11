@@ -86,6 +86,24 @@
             <%= cl_image_tag("-holland.png", :width=>25, :height=>25, :crop=>"scale")%>     
           <% end %>
         <% end unless current_page?(locale: :nl)%>
+
+        <%= content_tag :li do %>
+          <%= link_to locale: :it do %>
+            <%= cl_image_tag("-it.png", :width=>25, :height=>25, :crop=>"scale")%>
+          <% end %>
+        <% end unless current_page?(locale: :it) %>
+
+        <%= content_tag :li do %>
+          <%= link_to locale: :de do %>
+            <%= cl_image_tag("-de.png", :width=>25, :height=>25, :crop=>"scale")%>
+          <% end %>
+        <% end unless current_page?(locale: :de) %>
+
+        <%= content_tag :li do %>
+          <%= link_to locale: :es do %>
+            <%= cl_image_tag("-es.png", :width=>25, :height=>25, :crop=>"scale")%>
+          <% end %>
+        <% end unless current_page?(locale: :es) %>
       </div>
     </div>
   </div>
