@@ -143,3 +143,12 @@ es:
       not_saved:
         one: 'Ocurrió un error al tratar de guardar %{resource}:'
         other: 'Ocurrieron %{count} errores al tratar de guardar %{resource}:'
+  categories:
+    index:
+      title_banner: "Bienvenido a"
+      sub_title: "Ven a descubrir las virtudes del césped legal"
+      title_info: "Compra online de cannabis CBD Premium"
+      text1_info:  El cannabidiol (CBD) es una molécula llamada cannabioide presente en la planta de cannabis.
+                   Ella no tiene virtudes psicoactivas a diferencia de su hermana llamada THC (Tetra Hydro Cannabidiol), que es el principal elemento psicoactivo del cannabis.
+                   Por lo tanto, el CBD es una molécula no psicoactiva que desempeña un papel adicional en la inhibición del efecto del THC, que es responsable de la "alta" sensación de los consumidores de marihuana.
+      text2_info:  "Bienvenido a Weedlife.be, el especialista en la venta en línea de productos Swiss Swiss CBD.Totalmente legal en la mayoría de los países europeos, nuestros productos de CBD contienen menos del 0.2% de THC, según la legislación.Para los productos que contienen más de 0.2% de THC, le informamos que es probable que estén prohibidos para la venta y el consumo en su país, y lo invitamos a consultar y cumplir con la legislación vigente en su país de origen. residencia.Realizamos envíos a toda Europa: Francia, Bélgica, Italia ..."

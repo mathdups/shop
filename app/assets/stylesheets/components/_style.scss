@@ -71,9 +71,32 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
   
   .product-image {
     text-align: center;
+    height: 100%;
+    position: relative;
+    border-radius: 8px;
+    z-index: 1;
     img {
       width: 100px;
       max-height: 77.07px;
+    }
+    .quantity-product {
+      font-size: 0.85714em;
+      font-weight: 500;
+      line-height: 1.75em;
+      white-space: nowrap;
+      text-align: center;
+      border-radius: 1.75em;
+      background-color: rgba(114,114,114,0.9);
+      color: #fff;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      min-width: 1.75em;
+      height: 1.75em;
+      padding: 0 0.58333em;
+      position: absolute;
+      right: -0.75em;
+      top: -0.75em;
+      z-index: 3;
     }
   }
   

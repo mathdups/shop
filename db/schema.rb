@@ -42,12 +42,20 @@ ActiveRecord::Schema.define(version: 20191220234943) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title", limit: 100, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "product_id"
     t.index ["product_id"], name: "index_categories_on_product_id"
-    t.index ["title"], name: "index_categories_on_title", unique: true
+  end
+
+  create_table "category_translations", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.index ["category_id"], name: "index_category_translations_on_category_id"
+    t.index ["locale"], name: "index_category_translations_on_locale"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -89,6 +97,18 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.index ["product_id"], name: "index_product_categories_on_product_id"
   end
 
+  create_table "product_translations", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "short_description"
+    t.text "description"
+    t.string "title"
+    t.index ["locale"], name: "index_product_translations_on_locale"
+    t.index ["product_id"], name: "index_product_translations_on_product_id"
+  end
+
   create_table "product_variants", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.string "title", limit: 100, null: false
@@ -99,18 +119,14 @@ ActiveRecord::Schema.define(version: 20191220234943) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "title", limit: 150, null: false
     t.decimal "price", precision: 15, scale: 2, default: "0.0", null: false
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "short_description"
     t.string "short"
     t.string "photo"
     t.bigint "category_id"
     t.integer "quantity"
     t.index ["category_id"], name: "index_products_on_category_id"
-    t.index ["title"], name: "index_products_on_title", unique: true
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -128,6 +144,16 @@ ActiveRecord::Schema.define(version: 20191220234943) do
     t.integer "user_id"
     t.string "status"
     t.boolean "is_sent"
+  end
+
+  create_table "translations", force: :cascade do |t|
+    t.string "locale"
+    t.string "key"
+    t.text "value"
+    t.text "interpolations"
+    t.boolean "is_proc", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

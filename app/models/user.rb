@@ -11,12 +11,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :purchases
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password,
-      :password_confirmation, :remember_me, :photo, :photo_cache, :remove_photo, :first_name) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :email, :password,
-      :password_confirmation, :current_password, :photo, :photo_cache, :remove_photo, :first_name) }
-  end
+  
 
   def rememberable_value
     self.remember_token ||= Devise.friendly_token

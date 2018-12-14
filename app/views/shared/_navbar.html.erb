@@ -1,27 +1,25 @@
-<div class="pre-navbar-shop sticky">
+
   <div class="navbar-shop sticky">
       <!-- Logo -->
-
     <div class="weedlife-logo">
       <%= link_to root_path  do %>  
           <img src="https://res.cloudinary.com/dkprc38da/image/upload/v1544472255/weedlife-logo.png" >       
           <% end %> 
-      </div>
-
+    </div>
       <!-- Right Navigation -->
-      <div class="navbar-shop-right hidden-xs hidden-sm">
-
-      
-    
+    <div class="navbar-shop-right hidden-xs hidden-sm">   
         <% if user_signed_in? %>
           <!-- Links when logged in -->
-            <% if current_user.admin? %>
-              <%= link_to "Admin", admin_dashboard_path, class:"navbar-shop-item navbar-shop-link" %> 
+          <% if current_user.admin? %>
+            <%= link_to "Admin", admin_dashboard_path, class:"navbar-shop-item navbar-shop-link" %> 
           <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                  <% end %>
           <%= link_to "Home", root_path, class:"navbar-shop-item navbar-shop-link " %>
           <%= link_to order_items_path, class:"navbar-shop-item1 navbar-shop-link1" do %>  
           <i class="fas fa-shopping-cart" path="cart_path">(<%= current_cart.items_count %>)</i>
-          <% end %>  
+        <% end %>  
         <!-- Avatar with dropdown menu -->
           <div class="navbar-shop-item">
             <div class="dropdown">
@@ -106,5 +104,6 @@
         <% end unless current_page?(locale: :es) %>
       </div>
     </div>
+
   </div>
-</div>
+

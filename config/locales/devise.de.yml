@@ -141,3 +141,14 @@ de:
       not_saved:
         one: "%{resource} konnte aufgrund eines Fehlers nicht gespeichert werden:"
         other: "%{count} Fehler verhinderten das Speichern von %{resource}:"
+  categories:
+    index:
+      title_banner: "Willkommen zu"
+      sub_title: "Kommen Sie und entdecken Sie die Tugenden von legalem Gras."
+      title_info: "Online-Kauf von Cannabis CBD Premium"
+      
+
+      text2_info: "Willkommen bei Weedlife.be, dem Spezialisten für Online-Verkauf von Schweizer Premium-CBD-Produkten.
+                   In den meisten europäischen Ländern sind unsere CBD-Produkte nach den gesetzlichen Bestimmungen zu weniger als 0,2% THC legal.
+                   Bei Produkten, die mehr als 0,2% THC enthalten, weisen wir Sie darauf hin, dass sie in Ihrem Land wahrscheinlich zum Verkauf und Verbrauch verboten sind, und bitten Sie, die in Ihrem Herkunftsland geltenden Rechtsvorschriften zu konsultieren und einzuhalten. Residenz.
+                   Wir liefern in ganz Europa: Frankreich, Belgien, Italien ..."

@@ -5,15 +5,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+
   def update
-    current_user.update(user_params)
-    if current_user.save
-      flash[:success] = "Merci pour ce bel update!"
-      redirect_to '/cart/checkout'
-    else
-      render 'new'
-    end
+    @user = User.find(params[:id])
+    respond_to do |format|
+      if @user.update_attributes(user_params)
+        format.html { redirect_to billing_path, notice: 'Votre compte a bien été mis à jour' }
+      else
+        format.html { redirect_to root_path, alert: 'Erreur lors de la mise à jour de votre compte' }
+      end
+    end    
   end
+ 
 
 
   
@@ -27,8 +30,8 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
   def user_params
-    params.require(:user).permit(:username, :email, :password,
-      :password_confirmation, :remember_me, :photo, :photo_cache, :remove_photo, :first_name, :last_name, :phone, :address, :city, :country, :postal_code)
+    params.require(:user).permit(:first_name, :last_name, :address, :postal_code, :city, :country)
   end
 end

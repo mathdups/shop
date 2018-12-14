@@ -46,7 +46,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'mini_magick'
 gem 'carrierwave'
-gem 'haml'
 gem 'figaro'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
@@ -56,8 +55,11 @@ gem 'bootstrap-validator-rails'
 gem 'money-rails'
 gem "bootstrap-switch-rails"
 gem "letter_opener", :group => :development
-gem 'mailkick'
 gem 'i18n-tasks', '~> 0.9.28'
+gem 'i18n-active_record',
+  github: 'svenfuchs/i18n-active_record',
+  require: 'i18n/active_record'
+gem 'globalize', '~> 5.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -3,4 +3,5 @@ class Category < ApplicationRecord
   has_many :products, :dependent => :delete_all
 
   validates :title, uniqueness: true, presence: true
+  translates :title
 end

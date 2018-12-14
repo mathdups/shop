@@ -19,13 +19,14 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-
   end
-  
   
 
   def conditions
     current_user_id != nil
+  end
+
+  def billing
   end
     
 
@@ -53,10 +54,6 @@ class OrdersController < ApplicationController
     
   end
 
-
-  
-
-   
   
 
   private

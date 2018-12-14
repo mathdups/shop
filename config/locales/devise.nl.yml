@@ -141,3 +141,19 @@ nl:
       not_saved:
         one: 'Een fout verhinderde het opslaan van deze %{resource}:'
         other: "%{count} fouten verhinderde het opslaan van deze %{resource}:"
+  categories:
+    index:
+      title_banner: "Welkom bij"
+      sub_title: "Ontdek de deugden van legaal gras"
+      title_info: "Online aankoop van CBD Premium cannabis"
+      text1_info:  Cannabidiol (CBD) is een molecuul dat cannabioïde wordt genoemd en aanwezig is in de cannabisplant.
+                   Ze heeft geen psychoactieve deugden in tegenstelling tot haar zus genaamd THC (Tetra Hydro Cannabidiol), het belangrijkste psychoactieve element van cannabis.
+                   CBD is daarom een niet-psychoactieve molecule die een extra rol speelt bij het remmen van het effect van THC, dat verantwoordelijk is voor de 'high' die marihuanagebruikers voelen.
+      text2_info:  "Welkom bij Weedlife.be, de specialist in de online verkoop van Zwitserse premium CBD-producten.
+                   Volledig legaal in de meeste Europese landen, bevatten onze CBD-producten minder dan 0,2% THC, volgens de wetgeving.
+                   Voor producten die meer dan 0,2% THC bevatten, vestigen wij uw aandacht erop dat ze waarschijnlijk in uw land zullen worden verbannen voor verkoop en consumptie, en nodigen u uit om de wetgeving die van kracht is in uw land van herkomst, te raadplegen en na te leven. residentie.
+                   Wij bezorgen in heel Europa: Frankrijk, België, Italië ..."
+                  
+
+
+

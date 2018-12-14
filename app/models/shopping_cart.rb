@@ -12,9 +12,6 @@ class ShoppingCart
     end
   end
 
-  def tva
-    tva = order.sub_total * 0.05
-  end
 
   def shipping_cost
     if order.sub_total == 0
@@ -25,7 +22,7 @@ class ShoppingCart
   end
 
   def price_total
-    price_total = tva + shipping_cost + order.sub_total
+    price_total = shipping_cost + order.sub_total
   end
   
   def price_stripe

@@ -15,6 +15,10 @@ a, li {
   
 }
 
+.col-right-payment {
+  background-color: #FAFAFA;
+}
+
 
 .float-right {
   float: right;
@@ -624,4 +628,14 @@ footer{
 
 
 
+
+
+
+
+
+.flexbox-mini {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
