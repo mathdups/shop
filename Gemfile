@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.3'
+gem 'bootstrap-sass'
 gem 'font-awesome-sass', '~> 5.5'
 gem 'webpacker'
 gem 'autoprefixer-rails'
@@ -66,7 +66,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'sass-rails', '~> 5.0'
+  gem 'sass-rails'
   gem 'compass-rails'
 end
 
