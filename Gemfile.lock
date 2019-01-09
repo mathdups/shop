@@ -34,6 +34,11 @@ GEM
     activejob (5.1.6)
       activesupport (= 5.1.6)
       globalid (>= 0.3.6)
+    activemerchant (1.86.0)
+      activesupport (>= 4.2, < 6.x)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (>= 0.6.9)
+      nokogiri (~> 1.4)
     activemodel (5.1.6)
       activesupport (= 5.1.6)
     activerecord (5.1.6)
@@ -371,6 +376,7 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
+  activemerchant
   autoprefixer-rails
   bootsnap (>= 1.1.0)
   bootstrap-sass

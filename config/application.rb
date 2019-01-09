@@ -18,6 +18,7 @@ Bundler.require(*Rails.groups)
 
 module Shopper
   class Application < Rails::Application
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     # Use the responders controller from the responders gem
     config.app_generators.scaffold_controller :responders_controller
 
