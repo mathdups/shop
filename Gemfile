@@ -61,6 +61,7 @@ gem 'i18n-active_record',
   require: 'i18n/active_record'
 gem 'globalize', '~> 5.1.0'
 gem 'activemerchant'
+gem 'sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
